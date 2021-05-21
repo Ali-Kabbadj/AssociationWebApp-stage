@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Association</title>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/Layout.js"></script>
+    <script src="~/js/TweenMax.js"></script>
+    <link rel="stylesheet" href="~/css/Layout.css" />
+</head>
+<body>
+    <main class="main-content">
+        <section class="slideshow">
+            <div class="slideshow-inner">
+                <div class="hero">
+                    <header id="masthead" role="banner">
+                        <span id="masthead-search" style="position:sticky;">
+                            <span class="hamburger-label draw" style="font-size: 40px; ">Logo</span>
+                        </span>
+                        <div class="container">
+                            <button class="hamburger hamburger--boring" type="button">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                                <span class="hamburger-label">Menu</span>
+                            </button>
+                            <nav id="site-nav" role="navigation">
+                                <div class="col">
+                                    <a asp-action="Index" asp-controller="Home"  class="link">
+                                        <span class="mask">
+                                            <div class="link-container">
+                                                <span class="link-title1 title">HOME</span>
+                                                <span class="link-title2 title">GO</span>
+                                            </div>
+                                        </span>
+                                        <div class="link-icon">
+                                            <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                            </svg>
+                                            <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <h4>Qui somme-nous ?</h4>
+                                    <ul>
+                                        <li>
+                                            <a asp-action="Presentation" asp-controller="Presentation" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">PRESENTATION</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">NOTRE MISSION</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">MEMBRES</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <h4>
+                                        <a href="#" class="link">
+                                            <span class="mask">
+                                                <div class="link-container">
+                                                    <span class="link-title1 title">NOS PROJECTS</span>
+                                                    <span class="link-title2 title">GO</span>
+                                                </div>
+                                            </span>
+                                            <div class="link-icon">
+                                                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                </svg>
+                                                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col">
+                                    <h4>
+                                        <a href="#" class="link">
+                                            <span class="mask">
+                                                <div class="link-container">
+                                                    <span class="link-title1 title">PARTENAIRES</span>
+                                                    <span class="link-title2 title">GO</span>
+                                                </div>
+                                            </span>
+                                            <div class="link-icon">
+                                                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                </svg>
+                                                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                    <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col">
+                                    <h4>Nouvelles et Evénements</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">JOURNAL</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">CALENDRIER</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">INFORMATION FM21</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <h4>Contactez-Nous</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">LOCALIZATION</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link">
+                                                <span class="mask">
+                                                    <div class="link-container">
+                                                        <span class="link-title1 title">ENVOYEZ-NOUS UN MESSAGE</span>
+                                                        <span class="link-title2 title">GO</span>
+                                                    </div>
+                                                </span>
+                                                <div class="link-icon">
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                    <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </header>
+                </div>
+                @RenderBody()
+                @RenderSection("Scripts", required: false)
+            </div>
+        </section>
+    </main>
+</body>
+</html>

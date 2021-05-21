@@ -1,0 +1,93 @@
+﻿@model WebApplication1.Models.Home.HomeModel
+
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/PageCard/css/style.css" />
+
+
+
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <form method="post" class="Inputsbody" enctype="multipart/form-data">
+            <h1 style="position:center">Modifier le slide</h1>
+            <div class="form__group field">
+                <div class="Imgcontainer">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img id="Image" src="data:image/jpeg;base64,@Convert.ToBase64String(@Model.Image)" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text">
+                                No file chosen, yet!
+                            </div>
+                        </div>
+                        <div id="cancel-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <button id="ImageButton" class="btn mb-3 mr-3 btn-indigo"><span class="bg-float"></span><span class="text">Choisir une image</span></button>
+                    <input asp-for="ImageIForm" type='file' id="imgInp" hidden  />
+                </div>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Title" type="text" class="form__field" placeholder="Titre" required />
+                <label for="name" class="form__label">Titre</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Description" type="text" class="form__field" placeholder="Description" required />
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                <button asp-action="Edit" asp-controller="HomeCrud" class="btn mb-3 mr-3 btn-success"><span class="bg-float"></span><span class="text">Valider</span></button>
+                <button class="btn mb-3 mr-3 btn-danger btn-annuler"><span class="bg-float"></span><span class="text">Annuler</span></button>
+                <label></label>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+
+    $('#ImageButton').click(function (e) {
+        e.preventDefault();
+
+        $('#imgInp').click();
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#Image').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+    //Button Annuler
+
+    $('.btn-annuler').click(function () {
+            document.location = '@Url.Action("Index", "HomeCrud")';
+         });
+
+
+
+   
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

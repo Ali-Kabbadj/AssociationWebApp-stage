@@ -1,0 +1,659 @@
+
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+$font-family-sans-serif-2: 'Poppins', sans-serif;
+$font-family-serif: 'Source Serif Pro', serif;
+
+
+
+body {
+	font-family: $font-family-sans-serif;
+	
+}
+p {
+	color: darken(#ccc, 10%);
+	font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $font-family-sans-serif;
+}
+a {
+	transition: .3s all ease;
+	&, &:hover {
+		text-decoration: none!important;
+	}
+}
+.content {
+	height: 100vh;
+}
+h2 {
+	font-size: 20px;
+}
+
+.btn {
+	border-radius: 4px;
+	font-size: 13px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 0px;
+	border: none;
+	letter-spacing: .01rem;
+	position: relative;
+	background: none!important;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		border: 2px solid $primary;
+	}
+	> .bg-float {
+		position: absolute;
+		background: $primary;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		display: block;
+		transition: .1s all ease;
+	}
+	> .text {
+		display: block;
+		position: relative;	
+		z-index: 2;
+		transition: .1s all ease;
+		top: 0;
+		left: 0;
+	}
+	&:hover {
+		background: none!important;
+		> .bg-float {
+			top: -4px;
+			left: -4px;
+		}
+		> .text {
+			top: -4px;
+			left: -4px;
+		}
+	}
+
+	&.btn-sm {
+		font-size: 12px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	&.btn-lg {
+		font-size: 16px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	&:active, &:focus {
+		box-shadow: none;
+	}
+}
+
+
+/* Primary */
+.btn-primary {
+	&:before {
+		border-color: $primary;
+	}
+	> .bg-float {
+		background: $primary;
+	}
+}
+/* Secondary */
+.btn-secondary {
+	&:before {
+		border-color: $secondary;
+	}
+	> .bg-float {
+		background: $secondary;
+	}
+}
+/* Success */
+.btn-success {
+	&:before {
+		border-color: $success;
+	}
+	> .bg-float {
+		background: $success;
+	}
+}
+/* Info */
+.btn-info {
+	&:before {
+		border-color: $info;
+	}
+	> .bg-float {
+		background: $info;
+	}
+}
+/* Warning */
+.btn-warning {
+	&:before {
+		border-color: $warning;
+	}
+	> .bg-float {
+		background: $warning;
+	}
+}
+/* Light */
+.btn-light {
+	&:before {
+		border-color: darken($light, 10%);
+	}
+	> .bg-float {
+		background: darken($light, 10%);
+	}
+}
+/* Danger */
+.btn-danger {
+	&:before {
+		border-color: $danger;
+	}
+	> .bg-float {
+		background: $danger;
+	}
+}
+/* Orange */
+.btn-orange {
+	color: $white;
+	&:before {
+		border-color: $orange;
+	}
+	> .bg-float {
+		background: $orange;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+/* Indigo */
+.btn-indigo {
+	color: $white;
+	&:before {
+		border-color: $indigo;
+	}
+	> .bg-float {
+		background: $indigo;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+/* Pink */
+.btn-pink {
+	color: $white;
+	&:before {
+		border-color: $pink;
+	}
+	> .bg-float {
+		background: $pink;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+/* Purple */
+.btn-purple {
+	color: $white;
+	&:before {
+		border-color: $purple;
+	}
+	> .bg-float {
+		background: $purple;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+/* Blue */
+.btn-blue {
+	color: $white;
+	&:before {
+		border-color: $blue;
+	}
+	> .bg-float {
+		background: $blue;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+/* Brown */
+.btn-brown {
+
+	color: $white;
+	&:before {
+		border-color: #a0855b;
+	}
+	> .bg-float {
+		background: #a0855b;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+
+	
+}
+/* Blue gray */
+.btn-blue-gray {
+	color: $white;
+	&:before {
+		border-color: #3f4d71;
+	}
+	> .bg-float {
+		background: #3f4d71;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+
+/* Deep orange */
+.btn-deep-orange {
+	color: $white;
+	&:before {
+		border-color: #ffac8e;
+	}
+	> .bg-float {
+		background: #ffac8e;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+
+/* Aqua */
+.btn-aqua {
+	color: $white;
+	&:before {
+		border-color: #3fc5f0;
+	}
+	> .bg-float {
+		background: #3fc5f0;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+/* Dark */
+
+.btn-dark {
+	color: $white;
+	&:before {
+		border-color: #393e46;
+	}
+	> .bg-float {
+		background: #393e46;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+.btn-black {
+	color: $white;
+	&:before {
+		border-color: #000;
+	}
+	> .bg-float {
+		background: #000;
+	}
+	&:hover, &:focus {
+		color: $white;
+	}
+}
+
+
+
+
+
+
+
+/* Outline style */
+.btn-outline {
+	border-radius: 4px;
+	font-size: 13px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 0px;
+	border: none;
+	letter-spacing: .01rem;
+	position: relative;
+	background: none!important;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		border: 2px solid $primary;
+	}
+	> .bg-float {
+		position: absolute;
+		background: $white!important	;
+		border: 2px solid $primary;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		display: block;
+		transition: .1s all ease;
+	}
+	> .text {
+		display: block;
+		position: relative;	
+		z-index: 2;
+		transition: .1s all ease;
+		top: 0;
+		left: 0;
+		color: $primary;
+	}
+	&:hover {
+		background: none!important;
+		> .bg-float {
+			top: -4px;
+			left: -4px;
+		}
+		> .text {
+			top: -4px;
+			left: -4px;
+		}
+	}
+
+	&.btn-sm {
+		font-size: 12px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	&.btn-lg {
+		font-size: 16px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	&:active, &:focus {
+		box-shadow: none;
+	}
+
+
+
+/* Primary */
+&.btn-primary {
+	&:before {
+		border-color: $primary;
+	}
+	> .bg-float {
+		// background: $primary;
+		border: 2px solid $primary;
+	}
+}
+/* Secondary */
+&.btn-secondary {
+	&:before {
+		border-color: $secondary;
+	}
+	> .bg-float {
+		border: 2px solid $secondary;
+	}
+	> .text {
+		color: $secondary;
+	}
+}
+/* Success */
+&.btn-success {
+	&:before {
+		border-color: $success;
+	}
+	> .bg-float {
+		border: 2px solid $success;
+	}
+	> .text {
+		color: $success;
+	}
+}
+/* Info */
+&.btn-info {
+	&:before {
+		border-color: $info;
+	}
+	> .bg-float {
+		border: 2px solid $info;
+	}
+	> .text {
+		color: $info;
+	}
+}
+/* Warning */
+&.btn-warning {
+	&:before {
+		border-color: $warning;
+	}
+	> .bg-float {
+		border: 2px solid $warning;
+	}
+	> .text {
+		color: $warning;
+	}
+}
+/* Light */
+&.btn-light {
+	&:before {
+		border-color: darken($light, 10%);
+	}
+	> .bg-float {
+		border: 2px solid darken($light, 10%);
+	}
+	> .text {
+		color: darken($light, 50%);
+	}
+}
+/* Danger */
+&.btn-danger {
+	&:before {
+		border-color: $danger;
+	}
+	> .bg-float {
+		border: 2px solid $danger;
+	}
+	> .text {
+		color: $danger;
+	}
+}
+/* Orange */
+&.btn-orange {
+	&:before {
+		border-color: $orange;
+	}
+	> .bg-float {
+		border: 2px solid $orange;
+	}
+	> .text {
+		color: $orange;
+	}
+	&:hover, &:focus {
+		color: $orange;
+	}
+}
+/* Indigo */
+&.btn-indigo {
+	&:before {
+		border-color: $indigo;
+	}
+	> .bg-float {
+		border: 2px solid $indigo;
+	}
+	> .text {
+		color: $indigo;
+	}
+	&:hover, &:focus {
+		color: $indigo;
+	}
+}
+/* Pink */
+&.btn-pink {
+	&:before {
+		border-color: $pink;
+	}
+	> .bg-float {
+		border: 2px solid $pink;
+	}
+	> .text {
+		color: $pink;
+	}
+	&:hover, &:focus {
+		color: $pink;
+	}
+}
+/* Purple */
+&.btn-purple {
+	&:before {
+		border-color: $purple;
+	}
+	> .bg-float {
+		border: 2px solid $purple;
+	}
+	> .text {
+		color: $purple;
+	}
+	&:hover, &:focus {
+		color: $purple;
+	}
+}
+/* Blue */
+&.btn-blue {
+	&:before {
+		border-color: $blue;
+	}
+	> .bg-float {
+		border: 2px solid $blue;
+	}
+	> .text {
+		color: $blue;
+	}
+	&:hover, &:focus {
+		color: $blue;
+	}
+}
+/* Brown */
+&.btn-brown {
+	&:before {
+		border-color: #a0855b;
+	}
+	> .bg-float {
+		border: 2px solid #a0855b;
+	}
+	> .text {
+		color: #a0855b;
+	}
+	&:hover, &:focus {
+		color: #a0855b;
+	}
+
+	
+}
+/* Blue gray */
+&.btn-blue-gray {
+	&:before {
+		border-color: #3f4d71;
+	}
+	> .bg-float {
+		border: 2px solid #3f4d71;
+	}
+	> .text {
+		color: #3f4d71;
+	}
+	&:hover, &:focus {
+		color: #3f4d71;
+	}
+}
+
+/* Deep orange */
+&.btn-deep-orange {
+	&:before {
+		border-color: #ffac8e;
+	}
+	> .bg-float {
+		border: 2px solid #ffac8e;
+	}
+	> .text {
+		color: #ffac8e;
+	}
+	&:hover, &:focus {
+		color: #ffac8e;
+	}
+}
+
+/* Aqua */
+&.btn-aqua {
+	&:before {
+		border-color: #3fc5f0;
+	}
+	> .bg-float {
+		border: 2px solid #3fc5f0;
+	}
+	> .text {
+		color: #3fc5f0;
+	}
+	&:hover, &:focus {
+		color: #3fc5f0;
+	}
+}
+/* Dark */
+
+&.btn-dark {
+	&:before {
+		border-color: #393e46;
+	}
+	> .bg-float {
+		border: 2px solid #393e46;
+	}
+	> .text {
+		color: #393e46;
+	}
+	&:hover, &:focus {
+		color: #393e46;
+	}
+}
+/* Black */
+&.btn-black {
+	&:before {
+		border-color: #000;
+	}
+	> .bg-float {
+		border: 2px solid #000;
+	}
+	> .text {
+		color: #000;
+	}
+	&:hover, &:focus {
+		color: #000;
+	}
+}
+
+}
