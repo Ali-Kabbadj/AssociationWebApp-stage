@@ -3,46 +3,45 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication1.Migrations
 {
-    public partial class _134 : Migration
+    public partial class dd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "Admin");
+
             migrationBuilder.CreateTable(
-                name: "Parallex",
+                name: "Section",
                 schema: "Admin",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Imgae = table.Column<byte[]>(nullable: true),
+                    Image = table.Column<byte[]>(nullable: true),
                     Text = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Parallex", x => x.Id);
+                    table.PrimaryKey("PK_Section", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PresnetationSections",
+                name: "Slide",
                 schema: "Admin",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    ParallexId = table.Column<string>(nullable: true)
+                    Image = table.Column<byte[]>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    CreationDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PresnetationSections", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PresnetationSections_Parallex_ParallexId",
-                        column: x => x.ParallexId,
-                        principalSchema: "Admin",
-                        principalTable: "Parallex",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_Slide", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Paragraphs",
+                name: "Paragraph",
                 schema: "Admin",
                 columns: table => new
                 {
@@ -52,41 +51,35 @@ namespace WebApplication1.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Paragraphs", x => x.Id);
+                    table.PrimaryKey("PK_Paragraph", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Paragraphs_PresnetationSections_SectionId",
+                        name: "FK_Paragraph_Section_SectionId",
                         column: x => x.SectionId,
                         principalSchema: "Admin",
-                        principalTable: "PresnetationSections",
+                        principalTable: "Section",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Paragraphs_SectionId",
+                name: "IX_Paragraph_SectionId",
                 schema: "Admin",
-                table: "Paragraphs",
+                table: "Paragraph",
                 column: "SectionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PresnetationSections_ParallexId",
-                schema: "Admin",
-                table: "PresnetationSections",
-                column: "ParallexId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Paragraphs",
+                name: "Paragraph",
                 schema: "Admin");
 
             migrationBuilder.DropTable(
-                name: "PresnetationSections",
+                name: "Slide",
                 schema: "Admin");
 
             migrationBuilder.DropTable(
-                name: "Parallex",
+                name: "Section",
                 schema: "Admin");
         }
     }

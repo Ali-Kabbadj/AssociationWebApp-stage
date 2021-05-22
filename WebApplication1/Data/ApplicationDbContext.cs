@@ -30,8 +30,8 @@ namespace WebApplication1.Data
 
             builder.Entity<HomeModel>(entity =>
             {
-                entity.ToTable("Slides").HasKey(i => i.Id);
-                entity.ToTable("Slides").Ignore(i => i.ImageIForm);
+                entity.ToTable("Slide").HasKey(i => i.Id);
+                entity.ToTable("Slide").Ignore(i => i.ImageIForm);
             });
 
 
@@ -39,7 +39,7 @@ namespace WebApplication1.Data
 
             builder.Entity<Section>(entity =>
             {
-                entity.ToTable("PresnetationSections").HasKey(i => i.Id);
+                entity.ToTable("Section").HasKey(i => i.Id);
             });
 
 
@@ -47,7 +47,7 @@ namespace WebApplication1.Data
 
             builder.Entity<Paragraph>(entity =>
             {
-                entity.ToTable("Paragraphs").HasKey(i => i.Id);
+                entity.ToTable("Paragraph").HasKey(i => i.Id);
             });
 
 

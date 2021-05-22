@@ -39,7 +39,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides");
+                    b.ToTable("Slide");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Paragraph", b =>
@@ -57,7 +57,7 @@ namespace WebApplication1.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("Paragraphs");
+                    b.ToTable("Paragraph");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", b =>
@@ -73,7 +73,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PresnetationSections");
+                    b.ToTable("Section");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Paragraph", b =>

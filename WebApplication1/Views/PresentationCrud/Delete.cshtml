@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.Home.HomeModel
+﻿@model WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section
 
 @{
     ViewData["Title"] = "Delete";
@@ -14,7 +14,7 @@
 <div class="CardContainer">
     <div class="CardSection">
         <div class="Inputsbody">
-            <h1 style="position:center">Supprimer le slide</h1>
+            <h1 style="position:center">Supprimer la Section</h1>
             <div class="form__group field">
                 <div class="Imgcontainer">
                     <div class="wrapper">
@@ -36,20 +36,21 @@
                 </div>
             </div>
             <div class="form__group field">
-                <input asp-for="Title" type="text" class="form__field" placeholder="Titre" disabled />
-                <label for="name" class="form__label">Titre</label>
+                <input asp-for="Text" type="text" class="form__field" placeholder="Text Sur l'image" disabled />
+                <label for="name" class="form__label">Text Sur l'image</label>
             </div>
             <div class="form__group field">
-                <input asp-for="Description" type="text" class="form__field" placeholder="Description" disabled/>
-                <label for="name" class="form__label">Description</label>
+                @{ var count = @Model.ListOfParagraphs.Count().ToString();}
+                <input  type="text" class="form__field" value="@count" placeholder="Nombre de parragraphs" disabled/>
+                <label for="name" class="form__label">Nombre de parragraphs</label>
             </div>
             <div class="form__group field">
-                <h3>Etes-vous sur de voulpir supprimer ce slide?</h3>
+                <h3>Etes-vous sur de voulpir supprimer cette Section?</h3>
                 <div>
                     <form asp-action="Delete">
                         <input id="submit" type="submit" asp-for="Id" asp-route-id="@Model.Id" value="@Model.Id "  hidden/>
                         <button  value="Supprimer" class="btn btn-danger">Delete</button>
-                        <a asp-action="Index" asp-controller="HomeCrud">Retourner a la liste des slides</a>
+                        <a asp-action="Index" asp-controller="PresentationCrud">Retourner a la liste des Section</a>
                     </form>
                 </div>
                 <label></label>

@@ -10,8 +10,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210521125234_134")]
-    partial class _134
+    [Migration("20210521223353_dd")]
+    partial class dd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,7 +41,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides");
+                    b.ToTable("Slide");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Paragraph", b =>
@@ -59,15 +59,15 @@ namespace WebApplication1.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("Paragraphs");
+                    b.ToTable("Paragraph");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Parallex", b =>
+            modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<byte[]>("Imgae")
+                    b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Text")
@@ -75,22 +75,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Parallex");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ParallexId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParallexId");
-
-                    b.ToTable("PresnetationSections");
+                    b.ToTable("Section");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Paragraph", b =>
@@ -98,13 +83,6 @@ namespace WebApplication1.Migrations
                     b.HasOne("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", null)
                         .WithMany("ListOfParagraphs")
                         .HasForeignKey("SectionId");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", b =>
-                {
-                    b.HasOne("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Parallex", "Parallex")
-                        .WithMany()
-                        .HasForeignKey("ParallexId");
                 });
 #pragma warning restore 612, 618
         }

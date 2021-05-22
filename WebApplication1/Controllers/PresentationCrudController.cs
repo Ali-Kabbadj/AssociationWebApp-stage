@@ -100,5 +100,19 @@ namespace WebApplication1.Controllers
             PresentationService.Update(section);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Delete(string id)
+        {
+            var DeleteSection = PresentationService.GetAll().Where(i => i.Id == id).First();
+            return View(DeleteSection);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Section section)
+        {
+            PresentationService.Delete(section);
+            return RedirectToAction("Index");
+        }
     }
 }
