@@ -1,0 +1,95 @@
+﻿@model WebApplication1.Models.QuiSommeNous.MissionSection
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link href="/css/CrudTable/style.css" rel="stylesheet" />
+
+<style>
+    .area {
+        overflow: hidden;
+        word-wrap: break-word;
+        resize: vertical;
+        height: 500px;
+        overflow: hidden;
+        background-color: #FFF;
+        color: #222;
+        font-family: Courier, monospace;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 45px;
+        padding-bottom: 34px;
+        background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+        background-repeat: repeat-y, repeat;
+        -webkit-border-radius: 12px;
+        border-radius: 12px;
+        -webkit-box-shadow: 0px 2px 14px #000;
+        box-shadow: 0px 2px 14px #000;
+        border-top: 1px solid #FFF;
+        border-bottom: 1px solid #FFF;
+    }
+</style>
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <div class="Inputsbody">
+            <h1 style="position:center">Supprimer le slide</h1>
+            <div class="form__group field">
+                <div class="Imgcontainer">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img id="Image" src="data:image/jpeg;base64,@Convert.ToBase64String(@Model.Image)" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text">
+                                No file chosen, yet!
+                            </div>
+                        </div>
+                        <div id="cancel-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Title" type="text" class="form__field" placeholder="Titre" disabled />
+                <label for="name" class="form__label">Titre</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="SmallTitle" type="text" class="form__field" placeholder="Description"  disabled/>
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                @Html.TextAreaFor(x => x.Paragraph, new { @class = "area", disabled = true })
+                <label for="name" class="form__label"><br />Paragraph</label>
+            </div>
+            <div class="form__group field">
+                <h3>Etes-vous sur de voulpir supprimer ce slide?</h3>
+                <div>
+                    <form asp-action="Delete">
+                        <input id="submit" type="submit" asp-for="Id" asp-route-id="@Model.Id" value="@Model.Id " hidden />
+                        <button value="Supprimer" class="btn btn-danger">Delete</button>
+                        <a asp-action="Index" asp-controller="NotreMissionCrud">Retourner a la liste des Section</a>
+                    </form>
+                </div>
+                <label></label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.btn').click(function () {
+        $('#submit').click();
+    });
+</script>

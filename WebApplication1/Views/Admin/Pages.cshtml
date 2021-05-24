@@ -9,30 +9,30 @@
             <main class="page-content">
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Home</h2>
+                        <h2 class="title">Home Page</h2>
                         <p class="copy">Ajouter Titre,Description et Imgae d'un Slide a la page Home</p>
                         <button id="Home" class="btn">Geree</button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Presentation</h2>
+                        <h2 class="title">Presentation Page</h2>
                         <p class="copy">Ajouter , Modifier et suprimer les section de la page</p>
                         <button id="Presentation" class="btn">Geree</button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Desert Destinations</h2>
-                        <p class="copy">It's the desert you've always dreamed of</p>
-                        <button id="Members" class="btn">Book Now</button>
+                        <h2 class="title">Members Page</h2>
+                        <p class="copy">Ajouter , Modifier et suprimer les section de la page</p>
+                        <button id="Members" class="btn">Geree</button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
+                        <h2 class="title">Notre  Mission Page </h2>
+                        <p class="copy">Ajouter , Modifier et suprimer les section de la page</p>
+                        <button id="Mission" class="btn">Gree</button>
                     </div>
                 </div>
                 <div class="card">
@@ -99,7 +99,7 @@
 
 <script>
 
-    
+
       $('#Home').click(function () {
         document.location = '@Url.Action("Index","HomeCrud")';
       });
@@ -111,4 +111,11 @@
     $('#Members').click(function () {
         document.location = '@Url.Action("Index", "MembersCrud")';
     });
+
+    $('#Mission').click(function () {
+        document.location = '@Url.Action("Index", "NotreMissionCrud")';
+    });
+
+
+    
 </script>

@@ -27,6 +27,8 @@ namespace WebApplication1.Data
         public DbSet<ApplicationUser> UserList { get; set; }
         public DbSet<Member> members { get; set; }
 
+        public DbSet<MissionSection> ListSectionMission  { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -66,6 +68,11 @@ namespace WebApplication1.Data
             });
 
             builder.Entity<Member>(entity =>
+            {
+                entity.HasKey(i => i.Id);
+            });
+
+            builder.Entity<MissionSection>(entity =>
             {
                 entity.HasKey(i => i.Id);
             });

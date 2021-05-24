@@ -1,0 +1,118 @@
+﻿@model WebApplication1.Models.QuiSommeNous.MissionSection
+
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/PageCard/css/style.css" />
+
+
+
+<style>
+    .area {
+        overflow: hidden;
+        word-wrap: break-word;
+        resize: vertical;
+        height: 500px;
+        overflow: hidden;
+        background-color: #FFF;
+        color: #222;
+        font-family: Courier, monospace;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 45px;
+        padding-bottom: 34px;
+        background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+        background-repeat: repeat-y, repeat;
+        -webkit-border-radius: 12px;
+        border-radius: 12px;
+        -webkit-box-shadow: 0px 2px 14px #000;
+        box-shadow: 0px 2px 14px #000;
+        border-top: 1px solid #FFF;
+        border-bottom: 1px solid #FFF;
+    }
+</style>
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <form method="post" class="Inputsbody" enctype="multipart/form-data">
+            <h1 style="position:center">Cree une Nouvelle Section </h1>
+            <div class="form__group field">
+                <div class="Imgcontainer">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img id="Image" src="" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text">
+                                No file chosen, yet!
+                            </div>
+                        </div>
+                        <div id="cancel-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <button id="ImageButton" class="btn mb-3 mr-3 btn-indigo"><span class="bg-float"></span><span class="text">Choisir une image</span></button>
+                    <input asp-for="IFormImage" type='file' id="imgInp" hidden required />
+                </div>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Title" type="text" class="form__field" placeholder="Titre" required />
+                <label for="name" class="form__label">Titre</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="SmallTitle" type="text" class="form__field" placeholder="Description" required />
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                @Html.TextAreaFor(x => x.Paragraph, new { @class = "area" })
+                <label for="name" class="form__label"><br />Paragraph</label>
+            </div>
+            <div class="form__group field">
+                <button class="btn mb-3 mr-3 btn-success"><span class="bg-float"></span><span class="text">Valider</span></button>
+                <button class="btn mb-3 mr-3 btn-danger btn-annuler"><span class="bg-float"></span><span class="text">Annuler</span></button>
+                <label></label>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+    $('#ImageButton').click(function (e) {
+        e.preventDefault();
+
+        $('#imgInp').click();
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#Image').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+
+    //button Aannuler
+    $('.btn-annuler').click(function () {
+            document.location = '@Url.Action("Index","NotreMissionCrud")';
+         });
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
