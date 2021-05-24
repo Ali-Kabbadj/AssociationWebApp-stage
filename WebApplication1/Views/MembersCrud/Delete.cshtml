@@ -1,0 +1,73 @@
+﻿@model WebApplication1.Models.QuiSommeNous.Member
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link href="/css/CrudTable/style.css" rel="stylesheet" />
+
+
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <div class="Inputsbody">
+            <h1 style="position:center">Supprimer le Membre</h1>
+            <div class="form__group field">
+                <div class="Imgcontainer">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img id="Image" src="data:image/jpeg;base64,@Convert.ToBase64String(@Model.Image)" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text">
+                                No file chosen, yet!
+                            </div>
+                        </div>
+                        <div id="cancel-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form__group field">
+                <input asp-for="FirsName" type="text" class="form__field" placeholder="Titre" disabled />
+                <label for="name" class="form__label">Prenom</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="LastName" type="text" class="form__field" placeholder="Description" disabled />
+                <label for="name" class="form__label">Nom</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="ProfitionOrOrganization" type="text" class="form__field" placeholder="Description" disabled />
+                <label for="name" class="form__label">Profession ou Organization</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Description" type="text" class="form__field" placeholder="Description" disabled />
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                <h3>Etes-vous sur de voulpir supprimer ce slide?</h3>
+                <div>
+                    <form asp-action="Delete">
+                        <input id="submit" type="submit" asp-for="Id" asp-route-id="@Model.Id" value="@Model.Id " hidden />
+                        <button value="Supprimer" class="btn btn-danger">Delete</button>
+                        <a asp-action="Index" asp-controller="MembersCrud">Retourner a la liste des slides</a>
+                    </form>
+                </div>
+                <label></label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.btn').click(function () {
+        $('#submit').click();
+    });
+</script>

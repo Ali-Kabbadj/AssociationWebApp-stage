@@ -6,11 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Identity;
 
 namespace WebApplication1
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -22,5 +24,30 @@ namespace WebApplication1
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
+
+
+
+        //public static void Main(string[] args)
+        //{
+        //    CreateHostBuilder(args).Build().Run();
+        //}
+
+        //public static IHostBuilder CreateHostBuilder(string[] args) =>
+        //    Host.CreateDefaultBuilder(args)
+        //    .ConfigureAppConfiguration((context, config) =>
+        //    {
+        //        var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+        //        config.AddAzureKeyVault(
+        //        keyVaultEndpoint,
+        //        new DefaultAzureCredential());
+        //    })
+
+
+
+
+
+
     }
 }

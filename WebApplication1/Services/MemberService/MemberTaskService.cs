@@ -23,7 +23,8 @@ namespace WebApplication1.Services.MemberService
                 Image = member.Image,
                 FirsName = member.FirsName,
                 LastName = member.LastName,
-
+                ProfitionOrOrganization = member.ProfitionOrOrganization,
+                Description =member.Description
             });
             return members;
         }
