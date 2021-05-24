@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,11 @@ using WebApplication1.Services.HomeService;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class HomeCrudController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private HomeTaskService HomeService;
+        private readonly HomeTaskService HomeService;
         private readonly IWebHostEnvironment _environment;
         public HomeCrudController(ApplicationDbContext context, IWebHostEnvironment environment)
         { 
@@ -38,12 +40,6 @@ namespace WebApplication1.Controllers
         {
             if (Slide != null )
             {
-                    //Getting FileName
-                    var fileName = Path.GetFileName(Slide.ImageIForm.FileName);
-                    //Getting file Extension
-                    var fileExtension = Path.GetExtension(fileName);
-                    // concatenating  FileName + FileExtension
-                    var newFileName = String.Concat(Convert.ToString(Guid.NewGuid()), fileExtension);
 
  
 
@@ -99,11 +95,9 @@ namespace WebApplication1.Controllers
 
 
 
-                using (var target = new MemoryStream())
-                {
-                    Slide.ImageIForm.CopyTo(target);
-                    Slide.Image = target.ToArray();
-                }
+                using var target = new MemoryStream();
+                Slide.ImageIForm.CopyTo(target);
+                Slide.Image = target.ToArray();
             }
             HomeService.Update(Slide);
             return RedirectToAction("Index");

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,17 +14,18 @@ using WebApplication1.Services.PresentationService;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class PresentationCrudController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private PresentationTaskService PresentationService;
+        private readonly PresentationTaskService PresentationService;
         private readonly IWebHostEnvironment _environment;
 
         public PresentationCrudController(ApplicationDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;
-            PresentationService = new PresentationTaskService(_context, _environment);
+            PresentationService = new PresentationTaskService(_context);
 
         }
 
@@ -35,20 +37,19 @@ namespace WebApplication1.Controllers
             return View(Sections);
         }
 
+
+
+
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+
         [HttpPost]
         public IActionResult Create(Section section)
         {
-            var fileName = Path.GetFileName(section.ImageIForm.FileName);
-            //Getting file Extension
-            var fileExtension = Path.GetExtension(fileName);
-            // concatenating  FileName + FileExtension
-            var newFileName = String.Concat(Convert.ToString(Guid.NewGuid()), fileExtension);
 
 
 
@@ -60,6 +61,9 @@ namespace WebApplication1.Controllers
             PresentationService.Insert(section);
             return RedirectToAction("Index");
         }
+
+
+
 
         [HttpGet]
         public IActionResult Edit(string id)
@@ -91,15 +95,16 @@ namespace WebApplication1.Controllers
 
 
 
-                using (var target = new MemoryStream())
-                {
-                    section.ImageIForm.CopyTo(target);
-                    section.Image = target.ToArray();
-                }
+                using var target = new MemoryStream();
+                section.ImageIForm.CopyTo(target);
+                section.Image = target.ToArray();
             }
             PresentationService.Update(section);
             return RedirectToAction("Index");
         }
+
+
+
 
         [HttpGet]
         public IActionResult Delete(string id)
@@ -113,6 +118,81 @@ namespace WebApplication1.Controllers
         {
             PresentationService.Delete(section);
             return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+        [HttpGet]
+        public IActionResult IndexParagraph(string id)
+        {
+            var Paragraphs = PresentationService.GetAllParagraphsBySectionId(id);
+            ViewBag.SectionId = id;
+            return View(Paragraphs);
+        }
+
+
+
+
+
+        [HttpGet]
+        public IActionResult CreateParagraph(string id)
+        {
+            ViewBag.SectionId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateParagraph(Paragraph paragraph ,string ID )
+        {
+            paragraph.SectionId = ID;
+            PresentationService.InsertParagraph(paragraph, ID);
+            return RedirectToAction("IndexParagraph", "PresentationCrud", new { id = ID });
+        }
+
+
+
+        [HttpGet]
+        public IActionResult EditParagraph(string id)
+        {
+            var Deleteparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == id).First();
+            ViewBag.SectionId = Deleteparagraph.SectionId;
+            return View(Deleteparagraph);
+        }
+
+        [HttpPost]
+        public IActionResult EditParagraph(Paragraph P)
+        {
+            var Editparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == P.Id).First();
+            P.SectionId = Editparagraph.SectionId;
+            PresentationService.UpdateParagraph(P);
+            return RedirectToAction("IndexParagraph", "PresentationCrud", new { id = P.SectionId });
+        }
+
+
+
+
+
+        [HttpGet]
+        public IActionResult DeleteParagraph(string id)
+        {
+            var Deleteparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == id).First();
+            ViewBag.SectionId = Deleteparagraph.SectionId;
+            return View(Deleteparagraph);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteParagraph(string ID,string somethingelse)
+        {
+            var Deleteparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == ID).First();
+            ViewBag.SectionId = Deleteparagraph.SectionId;
+            PresentationService.DeleteParagraph(Deleteparagraph);
+            return RedirectToAction("IndexParagraph", "PresentationCrud", new { id = ViewBag.SectionId });
         }
     }
 }

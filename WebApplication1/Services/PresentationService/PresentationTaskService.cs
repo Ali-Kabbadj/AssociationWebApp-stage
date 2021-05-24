@@ -13,13 +13,16 @@ namespace WebApplication1.Services.PresentationService
     {
 
         private readonly ApplicationDbContext db;
-        private readonly IWebHostEnvironment _environment;
-        public PresentationTaskService(ApplicationDbContext context, IWebHostEnvironment environment)
+
+
+        public PresentationTaskService(ApplicationDbContext context)
         {
             db = context;
-            _environment = environment;
         }
 
+
+
+        // Presentation
         public virtual IQueryable<Section> GetAll()
         {
             IQueryable<Section> Presentation = db.PresnetationPage.Select(Section => new Section
@@ -32,7 +35,7 @@ namespace WebApplication1.Services.PresentationService
             return Presentation;
         }
 
-
+        
         public virtual void Insert(Section section)
         {
             section.Id = Guid.NewGuid().ToString();
@@ -51,13 +54,59 @@ namespace WebApplication1.Services.PresentationService
         public virtual void Delete(Section section)
         {
             db.PresnetationPage.Attach(section);
+            db.Paragraphs.RemoveRange(GetAllParagraphsBySectionId(section.Id));
             db.PresnetationPage.Remove(section);
             db.SaveChanges();
         }
 
-        private bool ValidateModel(HomeModel Slide)
+  
+
+
+
+
+
+        // Paragraphs
+
+        public virtual IQueryable<Paragraph> GetAllParagraphs()
         {
-            return true;
+            IQueryable<Paragraph> Paragraphs = db.Paragraphs.Select(paragraph => new Paragraph
+            {
+                Id = paragraph.Id,
+                ParagraphContent = paragraph.ParagraphContent,
+                SectionId = paragraph.SectionId
+                
+            });
+            return Paragraphs;
+        }
+
+        public virtual IQueryable<Paragraph> GetAllParagraphsBySectionId(string idSection)
+        {
+            var Paragraphs = GetAllParagraphs().Where(i => i.SectionId == idSection);
+            return Paragraphs;
+        }
+
+
+        public virtual void InsertParagraph(Paragraph paragraph,string id)
+        {
+            paragraph.SectionId = id;
+            paragraph.Id = Guid.NewGuid().ToString();
+            db.Paragraphs.Add(paragraph);
+            db.SaveChanges();
+        }
+
+        public virtual void UpdateParagraph(Paragraph paragraph)
+        {
+            db.Paragraphs.Attach(paragraph);
+            db.Entry(paragraph).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+
+        public virtual void DeleteParagraph(Paragraph paragraph)
+        {
+            db.Paragraphs.Attach(paragraph);
+            db.Paragraphs.Remove(paragraph);
+            db.SaveChanges();
         }
     }
 }

@@ -13,7 +13,7 @@
         <div class="Tablecontainer">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Liste des Section</h2>
+                    <h2 class="heading-section">Liste des Paragraphs</h2>
                 </div>
             </div>
             <div class="row">
@@ -22,7 +22,6 @@
                         <table class="table table-responsive-xl">
                             <thead>
                                 <tr>
-                                    <th>id</th>
                                     <th>Paragraph</th>
                                 </tr>
                             </thead>
@@ -31,10 +30,9 @@
                                 {
 
                                     <tr class="alert" role="alert">
-                                        <td>@item.Id</td>
-                                        <td>@item.ParagraphContent.Substring(0,20)...</td>
-                                        <td class="status"><button value="@item.Id" class="btn mb-3 mr-3 btn-success btn-Modifier"><span class="text">Modifier</span></button></td>
-                                        <td class="status"><button value="@item.Id" class="btn mb-3 mr-3 btn-danger btn-Supprimer"><span class="text">Supprimer</span></button></td>
+                                        <td>@item.ParagraphContent...</td>
+                                        <td class="status"><button asp-route-id="@item.Id" value="@item.Id" class="btn mb-3 mr-3 btn-success btn-Modifier"><span class="text">Modifier</span></button></td>
+                                        <td class="status"><button  asp-route-id="@item.Id" value="@item.Id"  class="btn mb-3 mr-3 btn-danger btn-Supprimer"><span class="text">Supprimer</span></button></td>
                                         <td>
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true"><i class="fa fa-close"></i></span>
@@ -46,7 +44,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <button id='NouvelleParagraphButton' class="btn mb-3 mr-3 btn-success "><span class="text">Nouvelle Paragraph</span></button>
+                    <button value="@ViewBag.SectionId" id='NouvelleParagraphButton' class="btn mb-3 mr-3 btn-success "><span class="text">Nouveaux Paragraph</span></button>
+                    <a asp-action="Index" asp-controller="PresentationCrud" >Retourner a la liste des Section</a>
                 </div>
             </div>
         </div>
@@ -56,9 +55,15 @@
 
 <script type="text/javascript">
 
-        $('#NouvelleParagraphButton').click(function () {
-            document.location = '@Url.Action("CreateParagraph", "PresentationCrud")';
-         });
+
+    //$('.btn-Supprimer').click(function () {
+    //    $('#submit').click();
+    //});
+
+    $("#NouvelleParagraphButton").on("click", function (evt) {
+            var clicked_button = $(this);
+            window.location.href = '@Url.Action("CreateParagraph", "PresentationCrud", new {id = "ID"})'.replace("ID", clicked_button.attr("value"));
+        });
 
 
         //get clicked button value and send to view with id of clicked item
@@ -68,10 +73,10 @@
         });
 
 
-        $(".btn-Supprimer").on("click", function (evt) {
-            var clicked_button = $(this);
-            window.location.href = '@Url.Action("DeleteParagraph", "PresentationCrud" , new {id = "ID"})'.replace("ID", clicked_button.attr("value"));
+    $(".btn-Supprimer").on("click", function (evt) {
+        var clicked_button = $(this);
+            window.location.href = '@Url.Action("DeleteParagraph", "PresentationCrud" , new { id = "ID" })'.replace("ID", clicked_button.attr("value"));
         });
 
-     
+
 </script>

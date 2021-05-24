@@ -9,10 +9,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Models.QuiSommeNous;
 using WebApplication1.Models.QuiSommeNous.ArticlePresentation;
+using WebApplication1.Data.AdminUserConfig;
 
 namespace WebApplication1.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext :  IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -21,6 +22,11 @@ namespace WebApplication1.Data
 
         public DbSet<HomeModel> HomeSlides { get; set; }
         public DbSet<Section> PresnetationPage { get; set; }
+        public DbSet<Paragraph> Paragraphs { get; set; }
+
+        public DbSet<ApplicationUser> UserList { get; set; }
+        public DbSet<Member> members { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -50,10 +56,19 @@ namespace WebApplication1.Data
                 entity.ToTable("Paragraph").HasKey(i => i.Id);
             });
 
+            builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new AdminConfiguration());
+            builder.ApplyConfiguration(new UsersWithRolesConfig());
+            
+            builder.Entity<Paragraph>(entity =>
+            {
+                entity.HasKey(i => i.Id);
+            });
 
-
-
-           
+            builder.Entity<Member>(entity =>
+            {
+                entity.HasKey(i => i.Id);
+            });
         }
     }
 }

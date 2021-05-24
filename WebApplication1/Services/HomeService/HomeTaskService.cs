@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using VirtualClinic.Classes.UploadFiles;
 using WebApplication1.Data;
 using WebApplication1.Models.Home;
-using static System.Net.WebRequestMethods;
 
 namespace WebApplication1.Services.HomeService
 {

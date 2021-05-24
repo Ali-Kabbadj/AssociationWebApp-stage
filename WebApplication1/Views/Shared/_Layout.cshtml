@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,6 +13,7 @@
     <script src="~/js/Layout.js"></script>
     <script src="~/js/TweenMax.js"></script>
     <link rel="stylesheet" href="~/css/Layout.css" />
+    <link rel="stylesheet" href="/css/float/float.css" />
 </head>
 <body>
     <main class="main-content">
@@ -16,7 +22,7 @@
                 <div class="hero">
                     <header id="masthead" role="banner">
                         <span id="masthead-search" style="position:sticky;">
-                            <span class="hamburger-label draw" style="font-size: 40px; ">Logo</span>
+                            <span class="hamburger-label draw" style="font-size: 40px;margin-bottom:-5px; ">Logo</span>
                         </span>
                         <div class="container">
                             <button class="hamburger hamburger--boring" type="button">
@@ -27,7 +33,7 @@
                             </button>
                             <nav id="site-nav" role="navigation">
                                 <div class="col">
-                                    <a asp-action="Index" asp-controller="Home"  class="link">
+                                    <a asp-action="Index" asp-controller="Home" class="link">
                                         <span class="mask">
                                             <div class="link-container">
                                                 <span class="link-title1 title">HOME</span>
@@ -84,7 +90,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="link">
+                                            <a asp-action="Index" asp-controller="Members" class="link">
                                                 <span class="mask">
                                                     <div class="link-container">
                                                         <span class="link-title1 title">MEMBRES</span>
@@ -251,6 +257,29 @@
                 @RenderSection("Scripts", required: false)
             </div>
         </section>
+        @if (SignInManager.IsSignedIn(User))
+        {
+        <div class="flBtnCntr">
+            <button class="flBtnBox big">+</button>
+            <div class="flBtns">
+                <button class="flBtnBox small1 btn-Index"><img style="z-index:999999" src="~/Images/SVG/AdminIndex.svg" /></button>
+                <button class="flBtnBox small1 btn-Logout"><img  src="~/Images/SVG/logout.svg" /></button>
+            </div>
+        </div>
+        }
     </main>
 </body>
 </html>
+
+
+
+
+<script>
+    $('.btn-Index').click(function () {
+            document.location = '@Url.Action("Pages","Admin")';
+    });
+
+     $('.btn-Logout').click(function () {
+            document.location = '@Url.Action("LogOut", "Admin")';
+         });
+</script>

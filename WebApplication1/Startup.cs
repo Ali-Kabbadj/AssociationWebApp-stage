@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Classes;
 using WebApplication1.Data;
+using WebApplication1.Data.AdminUserConfig;
 
 namespace WebApplication1
 {
@@ -41,6 +43,17 @@ namespace WebApplication1
                 options.Sender_Name = Configuration["ExternalProviders:MailKit:SMTP:SenderName"];
             });
 
+            //services.AddScoped<AdminConfiguration>();
+            //services.AddScoped<RoleConfiguration>();
+            ////services.AddScoped<UsersWithRolesConfig>();
+            services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
+
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+
+
             services.AddControllersWithViews();
         }
 
@@ -64,6 +77,7 @@ namespace WebApplication1
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -73,11 +87,9 @@ namespace WebApplication1
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                context.Database.Migrate();
-            }
+            using var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
+            var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
         }
     }
 }

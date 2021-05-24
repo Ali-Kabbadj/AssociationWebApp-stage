@@ -23,63 +23,82 @@
 
 
 
-            <section>
-                <div class="parallax-five">
-                    <h2>Female Refs Often Have To Go Out Of State To Get The Games They Need To Advance</h2>
-                </div>
-            </section>
+            @*<section>
+            <div class="parallax-five">
+                <h2>Female Refs Often Have To Go Out Of State To Get The Games They Need To Advance</h2>
+            </div>
+        </section>
 
-            <section>
-                <div class="block">
-                    <p><span class="first-character sc"></span>he Princeton Vikings led by captains Ryan Minnich (Senior), Spencer Snider (Juinor) and Mario Ruiz (Juinor) can perhaps be considered one of the youngest teams put on the pitch in Princeton history. Last year's squad featured more than 15 seinors </p>
-                    <p class="margin-top-10">Madison grew up playing soccer in the local Chicago park leagues. By age 13, Madison had developed into one of the top players in the area. Her coach, who was also her dad, implemented a special rule for her to make the games fair. </p>
-                    <p>“It was a 3 goal rule. Once I scored three goals, I couldn’t score anymore so that other girls on the team could score,” Madison said.</p>
-                    <p>In 1998, her talent and sportsmanship caught the eye of a male referee who approached her and her dad after a game. The referee wanted to know if Madison would be interested in becoming a referee.</p>
-                </div>
-            </section>
-
-
-
-
-
-
-            <section>
-                <div class="parallax-five">
-                    <h2>Female Refs Often Have To Go Out Of State To Get The Games They Need To Advance</h2>
-                </div>
-            </section>
-
-            <section>
-                <div class="block">
-                    <p><span class="first-character ny">I</span>ndividuals become soccer officials by passing a United States Soccer Federation (USSF) referee training course. Once they pass the course, they are grade eight referees. There are eight referee grades, with eight (can officiate youth recreation league games) being the lowest and one (can officiate World Cup and international matches) being the highest. </p>
-                    <p class="margin-top-10">Steve Siomos, 63, from Greece, is the only assignor that can assign any level of game in the state. Madison described Siomos as having a “monopoly” on the high-level matches in Illinois. An unnamed female referee accused Siomos of “hating” women. </p>
-                    <p>Referees move up to higher levels by succeeding performance evaluations, passing fitness tests and officiating top-level games, such as club and high school soccer state championships</p>
-                </div>
-            </section>
+        <section>
+            <div class="block">
+                <p><span class="first-character sc"></span>he Princeton Vikings led by captains Ryan Minnich (Senior), Spencer Snider (Juinor) and Mario Ruiz (Juinor) can perhaps be considered one of the youngest teams put on the pitch in Princeton history. Last year's squad featured more than 15 seinors </p>
+                <p class="margin-top-10">Madison grew up playing soccer in the local Chicago park leagues. By age 13, Madison had developed into one of the top players in the area. Her coach, who was also her dad, implemented a special rule for her to make the games fair. </p>
+                <p>“It was a 3 goal rule. Once I scored three goals, I couldn’t score anymore so that other girls on the team could score,” Madison said.</p>
+                <p>In 1998, her talent and sportsmanship caught the eye of a male referee who approached her and her dad after a game. The referee wanted to know if Madison would be interested in becoming a referee.</p>
+            </div>
+        </section>
 
 
 
 
 
-            <section>
-                <div class="parallax-four">
-                    <h2>No Female Has Officiated A High School Soccer State Championship Since 1997</h2>
-                </div>
-            </section>
 
-            <section>
-                <div class="block">
-                    <p><span class="first-character sc">P</span>RO is responsible for assigning referees to professional men’s and women’s leagues in the U.S. such as the MLS and NWLS. It is not associated with the ISRC.</p>
-                    <p class="margin-top-10">Through her position at PRO, Serafini has discovered that women in all states, not just Illinois, have difficulty being assigned quality games.</p>
-                    <p>“If girls want to move up they may have to look to try to get the games they need in other states,” said Serafini. This is something few men have to do.</p>
-                </div>
-            </section>
+        <section>
+            <div class="parallax-five">
+                <h2>Female Refs Often Have To Go Out Of State To Get The Games They Need To Advance</h2>
+            </div>
+        </section>
 
-
-
+        <section>
+            <div class="block">
+                <p><span class="first-character ny">I</span>ndividuals become soccer officials by passing a United States Soccer Federation (USSF) referee training course. Once they pass the course, they are grade eight referees. There are eight referee grades, with eight (can officiate youth recreation league games) being the lowest and one (can officiate World Cup and international matches) being the highest. </p>
+                <p class="margin-top-10">Steve Siomos, 63, from Greece, is the only assignor that can assign any level of game in the state. Madison described Siomos as having a “monopoly” on the high-level matches in Illinois. An unnamed female referee accused Siomos of “hating” women. </p>
+                <p>Referees move up to higher levels by succeeding performance evaluations, passing fitness tests and officiating top-level games, such as club and high school soccer state championships</p>
+            </div>
+        </section>*@
 
 
-            <section>
+            @foreach (var sectionm in Model)
+            {
+
+                <section>
+                    <div class="parallax-one" style="background-image:url(data:image/jpeg;base64,@Convert.ToBase64String(sectionm.Image))">
+                        <h2>@sectionm.Text</h2>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="block">
+                        @for (int i = 0; i < sectionm.ListOfParagraphs.Count(); i++)
+                        {
+                            if (i == 0)
+                            {
+                                <p><span class="first-character sc">@sectionm.ListOfParagraphs[i].ParagraphContent.ElementAt(0)</span>@sectionm.ListOfParagraphs[i].ParagraphContent.Remove(0, 1)</p>
+                            }
+                            if (i == 1)
+                            {
+                                <p class="margin-top-10">@sectionm.ListOfParagraphs[i].ParagraphContent</p>
+                            }
+                            else
+                            {
+                                <p>@sectionm.ListOfParagraphs[i].ParagraphContent</p>
+                            }
+                        }
+                    </div>
+                </section>
+
+
+
+
+            }
+
+
+
+
+
+
+
+                @*<section>
                 <div class="parallax-five">
                     <h2>Female Refs Often Have To Go Out Of State To Get The Games They Need To Advance</h2>
                 </div>
@@ -100,10 +119,10 @@
                 <div class="parallax-six">
                     <h2>No Female Refs Were Part Of The men's 2014 fifa world cup</h2>
                 </div>
-            </section>
+            </section>*@
 
+            </div>
         </div>
-    </div>
 </div>
 
 

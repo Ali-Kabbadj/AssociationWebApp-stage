@@ -4,22 +4,43 @@
 
 .CardSection::-webkit-scrollbar {
     width: 12px;
-    background-color: #F5F5F5;
+    border-radius: 30px;
+    background-color: white;
 }
 
 .CardSection::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: grey;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    border-radius: 30px;
+    background-color: white;
+    margin-top:1px;
 }
 
 .CardSection::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 30px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
     background-color: black;
+    
 }
 
+@media screen and (max-width: 462px) {
+    .CardSection::-webkit-scrollbar {
+        width: 0px;
+        border-radius: 0px;
+        background-color: white;
+    }
 
+    .CardSection::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+        border-radius: 0px;
+        background-color: white;
+    }
+
+    .CardSection::-webkit-scrollbar-thumb {
+        border-radius: 0px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+        background-color: white;
+    }
+}
 
 
 
@@ -44,13 +65,13 @@
     overflow: auto;
     position: relative;
     margin-top: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
+    margin-right: 0px;
+    margin-bottom: -14px;
+    margin-left: 0px;
     width: 100%;
     background-color: #fafafa;
     border: 2px solid white;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
     animation: bounceInDown 1s;
 }
@@ -76,6 +97,7 @@
         white-space: pre-wrap;
     }
 
+    /*Maybe cooment next two*/
 @media (max-width: 850px) {
     .CardSection:after {
         column-count: 1;
@@ -83,11 +105,7 @@
 }
 
 
-@media (max-width: 550px) {
-    .CardSection {
-        width: 95%;
-    }
-}
+
 
 @keyframes bounceInDown {
     from, 60%, 75%, 90%, to {
@@ -199,7 +217,7 @@
 
 
 div.Inputsbody {
-    min-height: 879px;
+    min-height: auto;
     min-width:425px;
 }
 

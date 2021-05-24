@@ -1,0 +1,92 @@
+﻿@model WebApplication1.Models.QuiSommeNous.ArticlePresentation.Paragraph
+
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/PageCard/css/style.css" />
+<link rel="stylesheet" href="~/css/Paragraph/ParagraphStyle.css" />
+
+
+<style>
+    .area {
+        overflow: hidden;
+        word-wrap: break-word;
+        resize: vertical;
+        height: 500px;
+        width: 735px;
+        overflow: hidden;
+        background-color: #FFF;
+        color: #222;
+        font-family: Courier, monospace;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 40px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 45px;
+        padding-bottom: 34px;
+        background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+        background-repeat: repeat-y, repeat;
+        -webkit-border-radius: 12px;
+        border-radius: 12px;
+        -webkit-box-shadow: 0px 2px 14px #000;
+        box-shadow: 0px 2px 14px #000;
+        border-top: 1px solid #FFF;
+        border-bottom: 1px solid #FFF;
+    }
+</style>
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <div method="post" class="Inputsbody">
+            <h1 style="position:center">Modifier le paragraph</h1>
+
+            <div class="form__group field">
+                <div id="paper" method="get" action="">
+
+
+                    <div class="form__group field">
+                        <div id="paper">
+                            <form method="post">
+                                @Html.TextAreaFor(x => x.ParagraphContent, new { @class = "area" })
+                                <input type="submit" class="submit" asp-action="EditParagraph" asp-controller="PresentationCrud" id="submit" value="@Model.SectionId " hidden />
+                                <label></label>
+                            </form>
+                            <button value="@Model.Id" id="valider" class="btn mb-3 mr-3 btn-success"><span class="bg-float"></span><span class="text">Valider</span></button>
+                            <button class="btn mb-3 mr-3 btn-danger btn-annuler"><span class="bg-float"></span><span class="text">Annuler</span></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    //button Aannuler
+    $('.btn-annuler').click(function () {
+            document.location = '@Url.Action("IndexParagraph", "PresentationCrud", new { Id = ViewBag.SectionId })';
+    });
+
+    $(document).ready(function () {
+        $('#title').focus();
+        $('#text').autosize();
+    });
+
+    $('#valider').click(function () {
+        $('.submit').click();
+    });
+
+    @*$('.btn-Valider').click(function () {
+        var parValue = "helooo";
+        window.location.href = '@Url.Action("CreateParagraph", "PresentationCrud", new { TextArea = "TextArea", SectionId = ViewBag.SectionId })'.Replace("TextArea", parValue);
+    });*@
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

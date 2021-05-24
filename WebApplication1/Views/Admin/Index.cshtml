@@ -1,110 +1,101 @@
-﻿<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+﻿@model WebApplication1.Data.AdminUserConfig.ApplicationUser
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/Admin/css/AdminStyle.css">
+<script src="~/css/Admin/js/AdminScript.js"></script>
 
-<link rel="stylesheet" href="~/css/Admin/AminIndex/AdminIndex.css" />
+
+<link rel="icon" type="image/png" href="~/css/Admin/AdminLogin/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/css/Admin/AdminLogin/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/css/Admin/AdminLogin/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/css/Admin/AdminLogin/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/css/Admin/AdminLogin/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/css/Admin/AdminLogin/css/main.css">
+
+
+
+
 
 
 <div class="CardContainer">
     <div class="CardSection">
-        <div class="Page-Body">
-            <main class="page-content">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Home</h2>
-                        <p class="copy">Ajouter Titre,Description et Imgae d'un Slide a la page Home</p>
-                        <button id="Home" class="btn">Geree</button>
+        <div class="container-login100" style="margin:0;">
+
+            <div class="wrap-login100">
+                <form asp-action="Login" asp-controller="Admin" class="login100-form validate-form">
+                    <span class="login100-form-logo">
+                        <i class="zmdi zmdi-landscape"></i>
+                    </span>
+
+                    <span class="login100-form-title p-b-34 p-t-27">
+                        Administration
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input asp-for="Email" type="text" name="Email" id="Email" class="input100" placeholder="Email">
+                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Presentation</h2>
-                        <p class="copy">Ajouter , Modifier et suprimer les section de la page</p>
-                        <button id="Presentation" class="btn">Geree</button>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input asp-for="Password" type="password" name="Password" id="password" class="input100"  placeholder="Password">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Desert Destinations</h2>
-                        <p class="copy">It's the desert you've always dreamed of</p>
-                        <button class="btn">Book Now</button>
+
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Remember me
+                        </label>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
+
+                    <div class="container-login100-form-btn">
+                        <button  type="submit" class="login100-form-btn">
+                            Login
+                        </button>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
-                    </div>
-                </div>
-            </main>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 
-<script>
+===============================================================================================
+<script src="~/css/Admin/AdminLogin/vendor/animsition/js/animsition.min.js"></script>
+===============================================================================================
+<script src="~/css/Admin/AdminLogin/vendor/bootstrap/js/popper.js"></script>
+<script src="~/css/Admin/AdminLogin/vendor/bootstrap/js/bootstrap.min.js"></script>
+===============================================================================================
+===============================================================================================
+<script src="~/css/Admin/AdminLogin/vendor/daterangepicker/moment.min.js"></script>
+===============================================================================================
+<script src="~/css/Admin/AdminLogin/vendor/countdowntime/countdowntime.js"></script>
+===============================================================================================
 
 
-      $('#Home').click(function () {
-        document.location = '@Url.Action("Index","HomeCrud")';
-      });
 
-     $('#Presentation').click(function () {
-        document.location = '@Url.Action("Index", "PresentationCrud")';
-    });
-</script>
+
+
+
+
+@*<div class="Form-body">
+        <form asp-action="Login" asp-controller="Admin" class="login-form">
+            <h1>Admin</h1>
+            <div class="form-input-material">
+                <input asp-for="Email" type="text" name="Email" id="Email" placeholder=" " autocomplete="off" class="form-control-material" required />
+                <label for="Email">Email</label>
+            </div>
+            <div class="form-input-material">
+                <input asp-for="Password" type="password" name="password" id="password" placeholder=" " autocomplete="off" class="form-control-material" required />
+                <label for="password">Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-ghost">Login</button>
+        </form>
+    </div>*@
