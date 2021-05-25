@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApplication1.Models.QuiSommeNous;
 using WebApplication1.Models.QuiSommeNous.ArticlePresentation;
 using WebApplication1.Data.AdminUserConfig;
+using Microsoft.CodeAnalysis;
+using Project = WebApplication1.Models.Project;
 
 namespace WebApplication1.Data
 {
@@ -28,6 +30,8 @@ namespace WebApplication1.Data
         public DbSet<Member> members { get; set; }
 
         public DbSet<MissionSection> ListSectionMission  { get; set; }
+
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -73,6 +77,11 @@ namespace WebApplication1.Data
             });
 
             builder.Entity<MissionSection>(entity =>
+            {
+                entity.HasKey(i => i.Id);
+            });
+
+            builder.Entity<Project>(entity =>
             {
                 entity.HasKey(i => i.Id);
             });

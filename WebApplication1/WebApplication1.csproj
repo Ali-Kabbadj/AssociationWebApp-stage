@@ -26,11 +26,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="2021.1.330" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\Images\Home\" />
+    <Folder Include="wwwroot\Projects\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -88,6 +90,11 @@
     <None Include="wwwroot\css\Admin\AdminLogin\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
     <None Include="wwwroot\css\Admin\AdminLogin\vendor\select2\select2.js" />
     <None Include="wwwroot\css\Admin\AdminLogin\vendor\select2\select2.min.js" />
+    <None Include="wwwroot\js\PDFObject-master\.gitignore" />
+    <None Include="wwwroot\js\PDFObject-master\LICENSE.md" />
+    <None Include="wwwroot\js\PDFObject-master\pdfobject.js" />
+    <None Include="wwwroot\js\PDFObject-master\pdfobject.min.js" />
+    <None Include="wwwroot\js\PDFObject-master\readme.md" />
   </ItemGroup>
 
 </Project>

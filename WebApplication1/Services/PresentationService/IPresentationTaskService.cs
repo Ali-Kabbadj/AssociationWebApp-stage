@@ -10,10 +10,10 @@ namespace WebApplication1.Services.PresentationService
     {
         IQueryable<T> GetAll();
 
-        void Insert(T Slide);
+        void Insert(T Presentation);
 
-        void Update(T Slide);
+        void Update(T Presentation);
 
-        void Delete(T Slide);
+        void Delete(T presentation);
     }
 }

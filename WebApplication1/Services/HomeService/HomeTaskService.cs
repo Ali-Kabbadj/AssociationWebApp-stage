@@ -30,7 +30,7 @@ namespace WebApplication1.Services.HomeService
                 Id=Slide.Id,
                 Image =Slide.Image,
                 Title =Slide.Title,
-                Description=Slide.Description
+                Description =Slide.Description
             });
             return Slides;
         }

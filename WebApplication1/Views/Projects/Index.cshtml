@@ -1,0 +1,44 @@
+﻿@model IQueryable<WebApplication1.Models.Project>
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/Projects/ProjectsStyle.css" />
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <ul style="width: 90%;margin: auto;justify-content: center;display: flex;display: flex;flex-wrap: wrap;list-style: none;padding: 0;">
+            @foreach (var item in Model)
+            {
+                <li class="booking-card" style="background-image: url(data:image/jpeg;base64,@Convert.ToBase64String(item.Image))">
+                    <div class="book-container">
+                    </div>
+                    <div class="informations-container">
+                        <h2 class="title">@item.Title</h2>
+                        <p class="sub-title">@item.SubTitle</p>
+                        <div class="more-information">
+                            <div class="info-and-date-container" style="cursor:pointer;">
+                                <input class="btn-Pdf" type="type" value="@item.Id" name="name" hidden/>
+                                <a class="PDF" style=" text-decoration: none; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%;">
+                                    <div class="box date">
+                                        <p>Consulter le PDF</p>
+                                    </div>
+                                    <input class="btn-Pdf" type="type" value="@item.Id" name="name" hidden />
+                                </a>
+                            </div>
+                            <p class="disclaimer">@item.Description</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(".PDF").on("click", function (evt) {
+        var clicked_button = $(this).children(".btn-Pdf");
+            window.location.href = '@Url.Action("ViewPDF", "Projects" , new {id = "ID"})'.replace("ID", clicked_button.attr("value"));
+        });
+</script>

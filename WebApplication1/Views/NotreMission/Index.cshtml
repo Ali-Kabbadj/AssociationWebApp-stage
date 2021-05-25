@@ -1,6 +1,8 @@
-﻿
+﻿@model IQueryable<WebApplication1.Models.QuiSommeNous.MissionSection>
 
-
+@{ 
+    int i = 0;
+}
 
 <link href="/css/NotreMission/NotreMissionStyle.css" rel="stylesheet" />
 <link href="/css/PageCard/PageCard.css" rel="stylesheet" />
@@ -11,77 +13,69 @@
             <div style="text-align:center;">
                 <span style="font-size:30px;">Notre Mission</span>
             </div>
-            <div class="blog-card">
-                <div class="meta">
-                    <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-
-                </div>
-                <div class="description">
-                    <h1>TItre 1</h1>
-                    <h2>Sous titre</h2>
-                    <p>Paragraph </p>
-                </div>
-            </div>
-
-
-            <div class="blog-card alt">
-                <div class="meta">
-                    <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
-
-                </div>
-                <div class="description">
-                    <h1>Titre 1</h1>
-                    <h2>Sous Titre</h2>
-                    <p>Paragraph</p>
-                </div>
-            </div>
-
+            @foreach (var item in Model)
+            {
+                if (i % 2 == 0)
+                {
+                    <div class="blog-card">
+                        <div class="meta">
+                            <div class="photo" style="background-image: url(data:image/jpeg;base64,@Convert.ToBase64String(item.Image))"></div>
+                        </div>
+                        <div class="description">
+                            <h1>@item.Title</h1>
+                            <h2>@item.SmallTitle</h2>
+                            <p>@item.Paragraph</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="blog-card alt">
+                        <div class="meta">
+                            <div class="photo" style="background-image: url(data:image/jpeg;base64,@Convert.ToBase64String(item.Image))"></div>
+                        </div>
+                          <div class="description">
+                            <h1>@item.Title</h1>
+                            <h2>@item.SmallTitle</h2>
+                            <p>@item.Paragraph</p>
+                        </div>
+                    </div>
+                }
+                i++;
+            }
             <div style="text-align:center;">
                 <span style="font-size:30px;">Quellques Nombres</span>
             </div>
-
-
         </div>
-
         <div class="CardItemcontainer">
             <a class="card1" href="#">
-                <h3>This is option 1</h3>
-                <p class="small">Membre</p>
+                <h3>@ViewBag.Mombers</h3>
+                <p class="small">Membres</p>
                 <div class="go-corner" href="#">
                     <div class="go-arrow">
                         →
                     </div>
                 </div>
             </a>
-
             <a class="card1" href="#">
-                <h3>This is option 1</h3>
-                <p class="small">Project</p>
+                <h3>@ViewBag.Projects</h3>
+                <p class="small">Projects</p>
                 <div class="go-corner" href="#">
                     <div class="go-arrow">
                         →
                     </div>
                 </div>
             </a>
-
             <a class="card1" href="#">
-                <h3>This is option 1</h3>
-                <p class="small">Partenair</p>
+                <h3>@ViewBag.Partenaires</h3>
+                <p class="small">Partenairs</p>
                 <div class="go-corner" href="#">
                     <div class="go-arrow">
                         →
                     </div>
                 </div>
             </a>
-
         </div>
-
-
-
     </div>
 </div>
 
-
-<script>
-
-</script>
