@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication1.Migrations
 {
-    public partial class LLL : Migration
+    public partial class parness : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,6 +52,72 @@ namespace WebApplication1.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListSectionMission",
+                schema: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Image = table.Column<byte[]>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    SmallTitle = table.Column<string>(nullable: true),
+                    Paragraph = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListSectionMission", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "members",
+                schema: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Image = table.Column<byte[]>(nullable: true),
+                    FirsName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    ProfitionOrOrganization = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_members", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Partners",
+                schema: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Image = table.Column<byte[]>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Partners", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Projects",
+                schema: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Image = table.Column<byte[]>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    SubTitle = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    FilePath = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Projects", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,13 +292,13 @@ namespace WebApplication1.Migrations
                 schema: "Admin",
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2301D884-221A-4E7D-B509-0113DCC043E1", "d5634328-c7c3-423a-be0c-741ced3bd761", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "2301D884-221A-4E7D-B509-0113DCC043E1", "1e9dfe04-6580-458b-b371-7d37653f80a6", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 schema: "Admin",
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "B22698B8-42A2-4115-9631-1C2D1E2AC5F7", 0, "b1d0ec8a-52c1-470d-94f7-1070c13eb641", "MasterAdmin@Admin.com", true, "Master", "Admin", false, null, "MASTERADMIN@ADMIN.COM", "MASTERADMIN", null, "AQAAAAEAACcQAAAAEBJo8lgIOeUD5awilIgYWNZ3XdyQQ72Xki7/RARxWeLGRqjJ4f8Y0awjudgK5MeweA==", "XXXXXXXXXXXXX", true, "00000000-0000-0000-0000-000000000000", false, "masteradmin" });
+                values: new object[] { "B22698B8-42A2-4115-9631-1C2D1E2AC5F7", 0, "dc1c8258-87bb-4cc8-9e47-82f9c99f85c2", "MasterAdmin@Admin.com", true, "Master", "Admin", false, null, "MASTERADMIN@ADMIN.COM", "MASTERADMIN", null, "AQAAAAEAACcQAAAAECcHRTCeqggbPXL/82yU7F+/2onD40SiF3H8HbR9I375rystw4UdkdpRU/5ZPFWPdQ==", "XXXXXXXXXXXXX", true, "00000000-0000-0000-0000-000000000000", false, "masteradmin" });
 
             migrationBuilder.InsertData(
                 schema: "Admin",
@@ -316,7 +382,23 @@ namespace WebApplication1.Migrations
                 schema: "Admin");
 
             migrationBuilder.DropTable(
+                name: "ListSectionMission",
+                schema: "Admin");
+
+            migrationBuilder.DropTable(
+                name: "members",
+                schema: "Admin");
+
+            migrationBuilder.DropTable(
                 name: "Paragraph",
+                schema: "Admin");
+
+            migrationBuilder.DropTable(
+                name: "Partners",
+                schema: "Admin");
+
+            migrationBuilder.DropTable(
+                name: "Projects",
                 schema: "Admin");
 
             migrationBuilder.DropTable(

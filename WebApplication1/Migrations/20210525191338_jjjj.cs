@@ -1,26 +1,26 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication1.Migrations
 {
-    public partial class NEW : Migration
+    public partial class jjjj : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ListSectionMission",
+                name: "Locations",
                 schema: "Admin",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
-                    Image = table.Column<byte[]>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    SmallTitle = table.Column<string>(nullable: true),
-                    Paragraph = table.Column<string>(nullable: true)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Latitude = table.Column<string>(nullable: true),
+                    Longitude = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ListSectionMission", x => x.Id);
+                    table.PrimaryKey("PK_Locations", x => x.Id);
                 });
 
             migrationBuilder.UpdateData(
@@ -29,7 +29,7 @@ namespace WebApplication1.Migrations
                 keyColumn: "Id",
                 keyValue: "2301D884-221A-4E7D-B509-0113DCC043E1",
                 column: "ConcurrencyStamp",
-                value: "1d162573-02ef-4c8d-a03b-d0c82250dd53");
+                value: "8ffa42cd-6911-4863-93cf-cc51e44ae80b");
 
             migrationBuilder.UpdateData(
                 schema: "Admin",
@@ -37,13 +37,13 @@ namespace WebApplication1.Migrations
                 keyColumn: "Id",
                 keyValue: "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                 columns: new[] { "ConcurrencyStamp", "PasswordHash" },
-                values: new object[] { "8f1d1985-ebe0-4976-a7cb-02bb842a1940", "AQAAAAEAACcQAAAAEB1cObDlP1nx/6k2B8kCxrRCFSSogb0WQmMYhs1oLbNwTwZuf22y0IaggeCJ6YgETQ==" });
+                values: new object[] { "ceb251f5-b624-45f5-927a-2cea57e66ffa", "AQAAAAEAACcQAAAAEKb1baNpaC7vzRCk1NFMNUa2kbbhoH84yx0vUUKwP35r0l8Or6GPW3UffNhH5QAqgg==" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ListSectionMission",
+                name: "Locations",
                 schema: "Admin");
 
             migrationBuilder.UpdateData(
@@ -52,7 +52,7 @@ namespace WebApplication1.Migrations
                 keyColumn: "Id",
                 keyValue: "2301D884-221A-4E7D-B509-0113DCC043E1",
                 column: "ConcurrencyStamp",
-                value: "5264fb75-f593-4960-8e20-1123fccd32d8");
+                value: "1e9dfe04-6580-458b-b371-7d37653f80a6");
 
             migrationBuilder.UpdateData(
                 schema: "Admin",
@@ -60,7 +60,7 @@ namespace WebApplication1.Migrations
                 keyColumn: "Id",
                 keyValue: "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                 columns: new[] { "ConcurrencyStamp", "PasswordHash" },
-                values: new object[] { "2349a87a-5338-4918-a072-88db1ff594a7", "AQAAAAEAACcQAAAAEPRp65y5zGyAhO7eQB0vWQAvuaKsC8ETAgk6SpzoYn3ol7RHY4sQBw/cJl/SSqljKQ==" });
+                values: new object[] { "dc1c8258-87bb-4cc8-9e47-82f9c99f85c2", "AQAAAAEAACcQAAAAECcHRTCeqggbPXL/82yU7F+/2onD40SiF3H8HbR9I375rystw4UdkdpRU/5ZPFWPdQ==" });
         }
     }
 }

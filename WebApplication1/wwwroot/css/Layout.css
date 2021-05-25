@@ -106,7 +106,6 @@ Making sure everything in .hero sits above our :after elements
     }
 
 #masthead {
-    padding: 1em 0;
     position: relative;
 }
 
@@ -143,6 +142,7 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     float: left;
     font: inherit;
     margin: 3.5px 0 0;
+    margin-top:15px;
     overflow: visible;
     outline: none;
     padding: 0;
@@ -354,7 +354,8 @@ https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     max-width: 14em;
     position: relative;
     -webkit-appearance: none;
-    margin-right:15px;
+    margin-right:20px;
+    margin-top:10px;
 }
 
 

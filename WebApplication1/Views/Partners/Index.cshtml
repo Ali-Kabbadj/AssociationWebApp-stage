@@ -1,0 +1,25 @@
+﻿@model IQueryable<WebApplication1.Models.Partner>
+
+<link href="/css/PageCard/PageCard.css" rel="stylesheet" />
+<link href="~/css/Partners/StyleSheet.css" rel="stylesheet" />
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        
+        <div class="cards">
+            <h1 style="font-size:70px;">Partenaires</h1>
+            @foreach (var item in Model)
+            {
+                <div class="card-wrapper flip-right">
+                    <div class="card">
+                        <div class="front"><img src="data:image/jpeg;base64,@Convert.ToBase64String(item.Image)" style="min-width: 100%; min-height: 100%; width: auto; height: auto; " /></div>
+                        <div class="back">@item.Name</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

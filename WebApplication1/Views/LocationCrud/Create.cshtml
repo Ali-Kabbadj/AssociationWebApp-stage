@@ -1,0 +1,54 @@
+﻿@model WebApplication1.Models.Contact_Us.Location
+
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/PageCard/css/style.css" />
+
+
+
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <form method="post" class="Inputsbody" enctype="multipart/form-data">
+            <h1 style="position:center">Cree une nouvelle Localization</h1>
+            <div class="form__group field">
+                <input asp-for="Name" type="text" class="form__field" placeholder="Titre" required />
+                <label for="name" class="form__label">Nom</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Longitude" type="text" class="form__field" placeholder="Description" required />
+                <label for="name" class="form__label">Longitude</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Latitude" type="text" class="form__field" placeholder="Titre" required />
+                <label for="name" class="form__label">Latitude</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Description" type="text" class="form__field" placeholder="Description" required />
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                <button class="btn mb-3 mr-3 btn-success"><span class="bg-float"></span><span class="text">Valider</span></button>
+                <button class="btn mb-3 mr-3 btn-danger btn-annuler"><span class="bg-float"></span><span class="text">Annuler</span></button>
+                <label></label>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+  
+
+    //button Aannuler
+    $('.btn-annuler').click(function () {
+            document.location = '@Url.Action("Index","LocationCrud")';
+         });
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

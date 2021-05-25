@@ -44,9 +44,9 @@
                 </div>
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
+                        <h2 class="title">Partenaires Page</h2>
+                        <p class="copy">Ajouter , Modifier et suprimer les partenaires</p>
+                        <button id="Partners" class="btn">geree</button>
                     </div>
                 </div>
                 <div class="card">
@@ -79,9 +79,9 @@
                 </div>
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
+                        <h2 class="title">Localization Page</h2>
+                        <p class="copy">Localization page</p>
+                        <button id="Location" class="btn">Geree</button>
                     </div>
                 </div>
                 <div class="card">
@@ -117,5 +117,11 @@
     });
     $('#Projects').click(function () {
         document.location = '@Url.Action("Index", "ProjectsCrud")';
+    });
+    $('#Partners').click(function () {
+        document.location = '@Url.Action("Index", "PartnersCrud")';
+    });
+     $('#Location').click(function () {
+        document.location = '@Url.Action("Index", "LocationCrud")';
     });
 </script>

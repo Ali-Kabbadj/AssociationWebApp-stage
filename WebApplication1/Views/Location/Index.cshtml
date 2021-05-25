@@ -1,0 +1,81 @@
+﻿@model IQueryable<WebApplication1.Models.Contact_Us.Location>
+
+<head>
+    <link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+          type="text/css" />
+</head>
+<style>
+    #marker {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ac/Oikya_Front_Logo.png);
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .mapboxgl-popup {
+        max-width: 200px;
+    }
+</style>
+<div class="CardContainer" >
+    <div class="CardSection" style="overflow:hidden;">
+        <div id='map' style='width: 100%; height: 105%;'></div>
+    </div>
+</div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpa2FiYmFkaiIsImEiOiJja3A0Zjh3ZXAwMGh1MnBxZThieGM3aTYyIn0.1eSN60jXFkPggdva8RhDNw';
+
+    navigator.geolocation.getCurrentPosition(succesLocation,
+        errorLocation, {
+            enableHighAccuracy: true
+    })
+
+    function succesLocation(position) {
+        console.log(position);
+        startMap([position.coords.longitude, position.coords.latitude])
+    }
+    function errorLocation()  {
+    }
+
+    function startMap(center) {
+        var map = new mapboxgl.Map({
+            container: "map",
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: center,
+            zoom : 9
+        })
+        map.addControl(new mapboxgl.NavigationControl(),"top-left");
+
+        
+
+
+        @foreach (var item in Model)
+        {
+             <text>
+        var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+            '@item.Name.ToUpper() : @item.Description'
+        );
+
+        var el = document.createElement('div');
+        el.id = 'marker';
+
+            var marker = new mapboxgl.Marker(el)
+                .setLngLat([ @double.Parse(item.Longitude),@double.Parse(item.Latitude)])
+                .setPopup(popup)
+            .addTo(map);
+            </text>
+
+	    }
+    }
+
+
+</script>
