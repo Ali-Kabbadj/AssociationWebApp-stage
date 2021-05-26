@@ -10,8 +10,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210525182640_parness")]
-    partial class parness
+    [Migration("20210526081925_DDDDD")]
+    partial class DDDDD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,7 @@ namespace WebApplication1.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "1e9dfe04-6580-458b-b371-7d37653f80a6",
+                            ConcurrencyStamp = "2cea149f-345f-4ee4-b5f4-bec5cd685eb9",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -248,7 +248,7 @@ namespace WebApplication1.Migrations
                         {
                             Id = "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dc1c8258-87bb-4cc8-9e47-82f9c99f85c2",
+                            ConcurrencyStamp = "d3a88f25-6929-4dc4-b2ff-845974d26b68",
                             Email = "MasterAdmin@Admin.com",
                             EmailConfirmed = true,
                             FirstName = "Master",
@@ -256,13 +256,37 @@ namespace WebApplication1.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MASTERADMIN@ADMIN.COM",
                             NormalizedUserName = "MASTERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAECcHRTCeqggbPXL/82yU7F+/2onD40SiF3H8HbR9I375rystw4UdkdpRU/5ZPFWPdQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENKz+R8kI+PjGj1NpQpphhEAW7g/vAeYZhaJQEGPc19akJeqkrgldFOp6aph0kR0cA==",
                             PhoneNumber = "XXXXXXXXXXXXX",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "00000000-0000-0000-0000-000000000000",
                             TwoFactorEnabled = false,
                             UserName = "masteradmin"
                         });
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Contact_Us.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Latitude")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Longitude")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Home.HomeModel", b =>
@@ -413,6 +437,56 @@ namespace WebApplication1.Migrations
                     b.ToTable("ListSectionMission");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.TimeRelated.CalendarEvent", b =>
+                {
+                    b.Property<int>("TaskId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("End")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EndTimezone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAllDay")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("RecurrenceException")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RecurrenceID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RecurrenceRule")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StartTimezone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Task1TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TaskId");
+
+                    b.HasIndex("Task1TaskId");
+
+                    b.ToTable("Events");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -469,6 +543,13 @@ namespace WebApplication1.Migrations
                     b.HasOne("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", null)
                         .WithMany("ListOfParagraphs")
                         .HasForeignKey("SectionId");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.TimeRelated.CalendarEvent", b =>
+                {
+                    b.HasOne("WebApplication1.Models.TimeRelated.CalendarEvent", "Task1")
+                        .WithMany("Tasks1")
+                        .HasForeignKey("Task1TaskId");
                 });
 #pragma warning restore 612, 618
         }

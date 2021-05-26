@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication1.Migrations
 {
-    public partial class parness : Migration
+    public partial class Ss : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,6 +55,23 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Events",
+                schema: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Color = table.Column<string>(nullable: true),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ListSectionMission",
                 schema: "Admin",
                 columns: table => new
@@ -68,6 +85,23 @@ namespace WebApplication1.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ListSectionMission", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Locations",
+                schema: "Admin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Latitude = table.Column<string>(nullable: true),
+                    Longitude = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Locations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -292,13 +326,13 @@ namespace WebApplication1.Migrations
                 schema: "Admin",
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2301D884-221A-4E7D-B509-0113DCC043E1", "1e9dfe04-6580-458b-b371-7d37653f80a6", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "2301D884-221A-4E7D-B509-0113DCC043E1", "bc349629-d1c2-4f7f-884c-c9e931216895", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 schema: "Admin",
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "B22698B8-42A2-4115-9631-1C2D1E2AC5F7", 0, "dc1c8258-87bb-4cc8-9e47-82f9c99f85c2", "MasterAdmin@Admin.com", true, "Master", "Admin", false, null, "MASTERADMIN@ADMIN.COM", "MASTERADMIN", null, "AQAAAAEAACcQAAAAECcHRTCeqggbPXL/82yU7F+/2onD40SiF3H8HbR9I375rystw4UdkdpRU/5ZPFWPdQ==", "XXXXXXXXXXXXX", true, "00000000-0000-0000-0000-000000000000", false, "masteradmin" });
+                values: new object[] { "B22698B8-42A2-4115-9631-1C2D1E2AC5F7", 0, "914fe382-64c9-4f46-a2b7-8f85e69af3b7", "MasterAdmin@Admin.com", true, "Master", "Admin", false, null, "MASTERADMIN@ADMIN.COM", "MASTERADMIN", null, "AQAAAAEAACcQAAAAENVMX3YNkOEsEjI7Jle8itGpLvil4MxLrvB9LVmTX/WX4RiCEXpN+Nm0R/9K7NZdtQ==", "XXXXXXXXXXXXX", true, "00000000-0000-0000-0000-000000000000", false, "masteradmin" });
 
             migrationBuilder.InsertData(
                 schema: "Admin",
@@ -382,7 +416,15 @@ namespace WebApplication1.Migrations
                 schema: "Admin");
 
             migrationBuilder.DropTable(
+                name: "Events",
+                schema: "Admin");
+
+            migrationBuilder.DropTable(
                 name: "ListSectionMission",
+                schema: "Admin");
+
+            migrationBuilder.DropTable(
+                name: "Locations",
                 schema: "Admin");
 
             migrationBuilder.DropTable(

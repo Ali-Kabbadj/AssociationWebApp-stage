@@ -1,0 +1,156 @@
+﻿@model IQueryable<WebApplication1.Models.TimeRelated.CalendarEvent>
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+
+<link rel="stylesheet" href="~/css/CrudTable/style.css">
+
+
+<style>
+    .option-1 {
+        background-color: #eb9696;
+    }
+
+    .option-2 {
+        background-color: #262fa6;
+    }
+
+    .option-3 {
+        background-color: #54c954;
+    }
+
+    .option-4 {
+        background-color: #bc54cc;
+    }
+
+    .option-5 {
+        background-color: #dbd35c;
+    }
+
+    .option-6 {
+        background-color: #51cdd4;
+    }
+
+    .option-7 {
+        background-color: #021112;
+        color: white;
+    }
+
+    #DivColor{
+        height:30px;
+        width:30px;
+        border-radius:50%;
+    }
+</style>
+
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <div class="Tablecontainer">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Liste des Evenement de Calendrier</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table table-responsive-xl">
+                            <thead>
+                                <tr>
+                                    <th>Debut</th>
+                                    <th>Fin</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Tout la journee</th>
+                                    <th>Couleur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                <tr class="alert" role="alert">
+                                    <td>@item.Start.ToShortDateString()</td>
+                                    <td>@item.End.ToShortDateString()</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Description</td>
+
+
+                                    @if (item.IsAllDay == true)
+                                    {
+                                        <td>Oui</td>
+                                    }
+                                    @if (item.IsAllDay == false)
+                                    {
+                                        <td>Non</td>
+                                    }
+
+                                    @if (item.Color == 1)
+                                    {
+                                        <td><div id="DivColor" class="option-1"></div></td>
+                                    }
+                                    @if (item.Color == 2)
+                                    {
+                                        <td><div id="DivColor" class="option-2"></div></td>
+                                    }
+                                    @if (item.Color == 3)
+                                    {
+                                        <td><div id="DivColor" class="option-3"></div></td>
+                                    }
+                                    @if (item.Color == 4)
+                                    {
+                                        <td><div id="DivColor" class="option-4"></div></td>
+                                    }
+                                    @if (item.Color == 5)
+                                    {
+                                        <td><div id="DivColor" class="option-5"></div></td>
+                                    }
+                                    @if (item.Color == 6)
+                                    {
+                                        <td><div id="DivColor" class="option-6"></div></td>
+                                    }
+                                    @if (item.Color == 7)
+                                    {
+                                        <td><div id="DivColor" class="option-7"></div></td>
+                                    }
+                                    <td class="status"><button value="@item.TaskId" class="btn mb-3 mr-3 btn-primary btn-Modifier"><span class="text">Modifier</span></button></td>
+                                    <td class="status"><button value="@item.TaskId" class="btn mb-3 mr-3 btn-danger btn-Supprimer"><span class="text">Supprimer</span></button></td>
+                                    <td>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id='NouvelleSlideButton' class="btn mb-3 mr-3 btn-success "><span class="text">Nouveau Evenement</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+        $('#NouvelleSlideButton').click(function () {
+            document.location = '@Url.Action("Create", "CalendarEventCrud")';
+         });
+
+
+        //get clicked button value and send to view with id of clicked item
+        $(".btn-Modifier").on("click", function (evt) {
+            var clicked_button = $(this);
+            window.location.href = '@Url.Action("Edit", "CalendarEventCrud", new {id = "ID"})'.replace("ID", clicked_button.attr("value"));
+        });
+
+
+        $(".btn-Supprimer").on("click", function (evt) {
+            var clicked_button = $(this);
+            window.location.href = '@Url.Action("Delete", "CalendarEventCrud", new {id = "ID"})'.replace("ID", clicked_button.attr("value"));
+        });
+</script>

@@ -10,8 +10,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210525191338_jjjj")]
-    partial class jjjj
+    [Migration("20210526044153_Ss")]
+    partial class Ss
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,7 @@ namespace WebApplication1.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "8ffa42cd-6911-4863-93cf-cc51e44ae80b",
+                            ConcurrencyStamp = "bc349629-d1c2-4f7f-884c-c9e931216895",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -248,7 +248,7 @@ namespace WebApplication1.Migrations
                         {
                             Id = "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ceb251f5-b624-45f5-927a-2cea57e66ffa",
+                            ConcurrencyStamp = "914fe382-64c9-4f46-a2b7-8f85e69af3b7",
                             Email = "MasterAdmin@Admin.com",
                             EmailConfirmed = true,
                             FirstName = "Master",
@@ -256,7 +256,7 @@ namespace WebApplication1.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MASTERADMIN@ADMIN.COM",
                             NormalizedUserName = "MASTERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKb1baNpaC7vzRCk1NFMNUa2kbbhoH84yx0vUUKwP35r0l8Or6GPW3UffNhH5QAqgg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENVMX3YNkOEsEjI7Jle8itGpLvil4MxLrvB9LVmTX/WX4RiCEXpN+Nm0R/9K7NZdtQ==",
                             PhoneNumber = "XXXXXXXXXXXXX",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "00000000-0000-0000-0000-000000000000",
@@ -435,6 +435,30 @@ namespace WebApplication1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ListSectionMission");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.TimeRelated.CalendarEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

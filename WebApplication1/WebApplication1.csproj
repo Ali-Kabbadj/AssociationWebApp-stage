@@ -20,6 +20,7 @@
   <ItemGroup>
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
     <PackageReference Include="Azure.Identity" Version="1.2.2" />
+    <PackageReference Include="jQuery.Fullcalendar" Version="3.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.15" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.15" />
@@ -29,7 +30,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Moment.js" Version="2.29.1" />
     <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="2021.1.330" />
   </ItemGroup>
 
@@ -93,6 +96,7 @@
     <None Include="wwwroot\css\Admin\AdminLogin\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
     <None Include="wwwroot\css\Admin\AdminLogin\vendor\select2\select2.js" />
     <None Include="wwwroot\css\Admin\AdminLogin\vendor\select2\select2.min.js" />
+    <None Include="wwwroot\js\daypilot\daypilot-all.min.js" />
     <None Include="wwwroot\js\PDFObject-master\.gitignore" />
     <None Include="wwwroot\js\PDFObject-master\LICENSE.md" />
     <None Include="wwwroot\js\PDFObject-master\pdfobject.js" />

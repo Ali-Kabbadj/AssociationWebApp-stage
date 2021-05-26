@@ -1,0 +1,94 @@
+﻿@model WebApplication1.Models.TimeRelated.CalendarEvent
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link href="/css/CrudTable/style.css" rel="stylesheet" />
+
+
+<style>
+    .option-1 {
+        background-color: #eb9696;
+    }
+
+    .option-2 {
+        background-color: #262fa6;
+    }
+
+    .option-3 {
+        background-color: #54c954;
+    }
+
+    .option-4 {
+        background-color: #bc54cc;
+    }
+
+    .option-5 {
+        background-color: #dbd35c;
+    }
+
+    .option-6 {
+        background-color: #51cdd4;
+    }
+
+    .option-7 {
+        background-color: #021112;
+        color: white;
+    }
+</style>
+
+
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <div class="Inputsbody">
+            <h1 style="position:center;text-align:center;">Supprimer l'evenement</h1>
+            <div class="form__group field">
+                <input asp-for="Start" type="datetime-local" class="form__field" placeholder="Titre" disabled />
+                <label for="name" class="form__label">Debut</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="End" type="datetime-local" class="form__field" placeholder="Description" disabled />
+                <label for="name" class="form__label">Fin</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Title" type="text" class="form__field" placeholder="Titre" disabled />
+                <label for="name" class="form__label">Titre</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Description" type="text" class="form__field" placeholder="Description" disabled />
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                <input style="width:30px;height:30px;margin-top:15px;" asp-for="IsAllDay" type="checkbox" class="form__field" placeholder="Description" disabled />
+                <label for="name" class="form__label">Tout la journee</label>
+            </div>
+            <div class="form__group field">
+                <select style="height:30px;width:30px;margin-top:15px;border-radius:50%;" class="option-@ViewBag.Color form__field" id="sel1" asp-for="Color" disabled>
+                </select>
+                <label for="name" class="form__label">Couleur</label>
+            </div>
+            <div class="form__group field">
+                <h3>Etes-vous sur de voulpir supprimer ce slide?</h3>
+                <div>
+                    <form asp-action="Delete">
+                        <input id="submit" type="submit" asp-for="TaskId" asp-route-id="@Model.TaskId" value="@Model.TaskId " hidden />
+                        <button value="Supprimer" class="btn btn-danger">Supprimer</button>
+                        <a asp-action="Index" asp-controller="CalendarEventCrud">Retourner a la liste des Evenement</a>
+                    </form>
+                </div>
+                <label></label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.btn').click(function () {
+        $('#submit').click();
+    });
+</script>

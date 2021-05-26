@@ -12,11 +12,11 @@ using Location = WebApplication1.Models.Contact_Us.Location;
 namespace WebApplication1.Controllers
 {
     [Authorize(Roles = "Administrator")]
-    public class LocationCrud : Controller
+    public class LocationCrudController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly LocationTaskService LocationService;
-        public LocationCrud(ApplicationDbContext context)
+        public LocationCrudController(ApplicationDbContext context)
         {
             _context = context;
             LocationService = new LocationTaskService(_context);

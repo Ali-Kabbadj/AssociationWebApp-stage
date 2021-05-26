@@ -1,0 +1,126 @@
+﻿@model WebApplication1.Models.TimeRelated.CalendarEvent
+
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/PageCard/css/style.css" />
+
+<style>
+    .option-1 {
+        background-color: #eb9696;
+    }
+
+    .option-2 {
+        background-color: #262fa6;
+    }
+
+    .option-3 {
+        background-color: #54c954;
+    }
+
+    .option-4 {
+        background-color: #bc54cc;
+    }
+
+    .option-5 {
+        background-color: #dbd35c;
+    }
+
+    .option-6 {
+        background-color: #51cdd4;
+    }
+
+    .option-7 {
+        background-color: #021112;
+        color: white;
+    }
+</style>
+
+
+
+<div class="CardContainer">
+    <div class="CardSection">
+        <form method="post" class="Inputsbody" enctype="multipart/form-data">
+            <h1 style="position:center">Modifier l'evenement</h1>
+            <div class="form__group field">
+                <input type="text" name="name" value="@Model.TaskId" hidden />
+                <input asp-for="Start" type="datetime-local" class="form__field" placeholder="Titre" required />
+                <label for="name" class="form__label">Debut</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="End" type="datetime-local" class="form__field" placeholder="Description" required />
+                <label for="name" class="form__label">Fin</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Title" type="text" class="form__field" placeholder="Titre" required />
+                <label for="name" class="form__label">Titre</label>
+            </div>
+            <div class="form__group field">
+                <input asp-for="Description" type="text" class="form__field" placeholder="Description" required />
+                <label for="name" class="form__label">Description</label>
+            </div>
+            <div class="form__group field">
+                <input checked="@Model.IsAllDay" style="width:30px;height:30px;margin-top:15px;" asp-for="IsAllDay" type="checkbox" class="form__field" placeholder="Description" />
+                <label for="name" class="form__label">Tout la journee</label>
+            </div>
+            <div class="form__group field">
+                <select style="height:30px;width:30px;margin-top:15px;border-radius:50%;" onchange="this.className=this.options[this.selectedIndex].className" class="option-@ViewBag.Color form__field" id="sel1" asp-for="Color">
+                    <option value="1" class="option-1"></option>
+                    <option value="2" class="option-2"></option>
+                    <option value="3" class="option-3"></option>
+                    <option value="4" class="option-4"></option>
+                    <option value="5" class="option-5"></option>
+                    <option value="6" class="option-6"></option>
+                    <option value="7" class="option-7"></option>
+                </select>
+                <label for="name" class="form__label">Couleur</label>
+            </div>
+            <div class="form__group field">
+                <button asp-action="Edit" asp-controller="CalendarEventCrud" class="btn mb-3 mr-3 btn-success"><span class="bg-float"></span><span class="text">Valider</span></button>
+                <button class="btn mb-3 mr-3 btn-danger btn-annuler"><span class="bg-float"></span><span class="text">Annuler</span></button>
+                <label></label>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+
+@{Model.TaskId = ViewBag.Id;}
+    $('#ImageButton').click(function (e) {
+        e.preventDefault();
+
+        $('#imgInp').click();
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#Image').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    });
+    //Button Annuler
+
+    $('.btn-annuler').click(function () {
+            document.location = '@Url.Action("Index", "CalenderEventCrud")';
+         });
+
+
+
+
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

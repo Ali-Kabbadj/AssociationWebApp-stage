@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+    <link rel="stylesheet" href="~/css/Projects/ProjectsStyle.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Association</title>
@@ -14,6 +16,21 @@
     <script src="~/js/TweenMax.js"></script>
     <link rel="stylesheet" href="~/css/Layout.css" />
     <link rel="stylesheet" href="/css/float/float.css" />
+    @{ var kendoVersion = "2021.1.330";}
+    <script src="https://kendo.cdn.telerik.com/@kendoVersion/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/@kendoVersion/js/kendo.aspnetmvc.min.js"></script>
+    <link href="https://kendo.cdn.telerik.com/@kendoVersion/styles/kendo.common-material.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/@kendoVersion/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/@kendoVersion/styles/kendo.material.min.css" rel="stylesheet" type="text/css" />
+
+    <script defer src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script defer src="~/lib/jquery/dist/jquery.js"></script>
+    <script defer src="~/js/site.js"></script>
+
+    <script defer src="https://kendo.cdn.telerik.com/@kendoVersion/js/jquery.min.js"></script>
+    <script defer src="https://kendo.cdn.telerik.com/@kendoVersion/js/jszip.min.js"></script>
+    <script defer src="https://kendo.cdn.telerik.com/@kendoVersion/js/kendo.all.min.js"></script>
+    <script defer src="https://kendo.cdn.telerik.com/@kendoVersion/js/kendo.aspnetmvc.min.js"></script>
 </head>
 <body>
     <main class="main-content">
@@ -171,7 +188,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="link">
+                                            <a asp-action="Index" asp-controller="Calendar" class="link">
                                                 <span class="mask">
                                                     <div class="link-container">
                                                         <span class="link-title1 title">CALENDRIER</span>

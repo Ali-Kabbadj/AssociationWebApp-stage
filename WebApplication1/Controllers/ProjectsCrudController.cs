@@ -16,10 +16,10 @@ namespace WebApplication1.Controllers
     [Authorize(Roles = "Administrator")]
     public class ProjectsCrudController : Controller
     {
-        private readonly IHostingEnvironment _hostingEnv;
+        private readonly IWebHostEnvironment _hostingEnv;
         private readonly ApplicationDbContext _context;
         private readonly ProjectTaskService ProjectService;
-        public ProjectsCrudController(IHostingEnvironment hostingEnv,ApplicationDbContext context)
+        public ProjectsCrudController(IWebHostEnvironment hostingEnv,ApplicationDbContext context)
         {
             _hostingEnv = hostingEnv;
             _context = context;

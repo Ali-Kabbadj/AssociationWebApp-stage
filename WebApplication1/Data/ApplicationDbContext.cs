@@ -14,6 +14,7 @@ using Microsoft.CodeAnalysis;
 using Project = WebApplication1.Models.Project;
 using Location = WebApplication1.Models.Contact_Us.Location;
 using WebApplication1.Models;
+using WebApplication1.Models.TimeRelated;
 
 namespace WebApplication1.Data
 {
@@ -33,6 +34,7 @@ namespace WebApplication1.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<CalendarEvent> Events { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -94,6 +96,11 @@ namespace WebApplication1.Data
             builder.Entity<Location>(entity =>
             {
                 entity.HasKey(i => i.Id);
+            });
+
+            builder.Entity<CalendarEvent>(entity =>
+            {
+                entity.HasKey(i => i.TaskId);
             });
         }
     }
