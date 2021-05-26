@@ -1,0 +1,68 @@
+﻿@model WebApplication1.Models.Contact_Us.ContactForm
+
+<link rel="stylesheet" href="~/css/PageCard/PageCard.css" />
+<link rel="stylesheet" href="~/css/PageCard/css/style.css" />
+<link rel="stylesheet" href="~/MessegeUs/messegeUsStyle.css"/>
+
+<style>
+</style>
+
+
+<div class="CardContainer" >
+    <div style="text-align: center;background-color:black; border:0px;" class="CardSection">
+        <div class="body">
+            <div class="wrapperMeesage centered">
+                <form asp-action="SendMessage" asp-controller="MessageUs" id="formId" class="letter">
+                    <div class="side">
+                        <h1 class="h1">Contactez-Nous</h1>
+                        <p class="p">
+                            <textarea asp-for="Message" style="margin:15px;" placeholder="Ton message"></textarea>
+                        </p>
+                    </div>
+                    <div class="side">
+                        <p class="p">
+                            <input asp-for="Name" type="text"  placeholder="Ton name">
+                        </p>
+                        <p class="p">
+                            <input asp-for="Email"  type="email" placeholder="Ton email">
+                        </p>
+                        <p class="p">
+                            <button id="sendLetter">Envoyer</button>
+                        </p>
+                    </div>
+                </form>
+                <div class="envelope front"></div>
+                <div class="envelope back"></div>
+            </div>
+            <p id="send"  class="result-message centered">Merci Pour votre message</p>
+        </div>
+    
+    </div>
+</div>
+
+<script>
+    function addClass() {
+        document.body.classList.add("sent");
+    }
+
+    
+
+        
+
+        // Display message
+
+        const form = $("#formId");
+
+        form.submit(() => {
+
+            //some other functions you need to proceed before submit
+
+            setTimeout(() => { }, 2700);
+            return true;
+        });
+
+    
+   
+
+    sendLetter.addEventListener("click", addClass);
+</script>

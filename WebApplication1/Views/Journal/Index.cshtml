@@ -1,0 +1,86 @@
+﻿@model IQueryable<WebApplication1.Models.TimeRelated.Journal>
+
+        <link href="~/Journal/JournalStyle.css" rel="stylesheet" />
+        <script src="~/Journal/JournalScript.js"></script>
+
+
+
+
+
+
+
+@{ int i = 0; }
+<div class="CardContainer">
+    <div style="text-align:center;" class="CardSection">
+        <h1 style="font-size:70px;font-weight:bold;display:block;background-color:#c5cae9;z-index:444;">Journal</h1>
+
+        <div class="timeline" style="margin-top:10px;">
+
+            @foreach (var item in Model)
+            {
+                if (i % 2 == 0)
+                {
+                    if (item.Image != null)
+                    {
+                        <div class="timeline-item">
+                            <div class="timeline-img"></div>
+                            <div class="timeline-content timeline-card js--fadeInLeft">
+                                <div class="timeline-img-header" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('data:image/jpeg;base64,@Convert.ToBase64String(item.Image)') center center no-repeat;">
+                                    <h2>@item.Title</h2>
+                                </div>
+                                <div class="date">@item.CreationDate.Day @item.CreationDate.ToString("MMM") @item.CreationDate.Year a <br />  @item.CreationDate.TimeOfDay.Hours.ToString()h @item.CreationDate.TimeOfDay.Minutes.ToString()m </div>
+                                <p>@item.Paragraph</p>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div class="timeline-item">
+                            <div class="timeline-img"></div>
+                            <div class="timeline-content js--fadeInLeft">
+                                <h2>@item.Title</h2>
+                                <div class="date">@item.CreationDate.Day @item.CreationDate.ToString("MMM") @item.CreationDate.Year a <br />  @item.CreationDate.TimeOfDay.Hours.ToString()h @item.CreationDate.TimeOfDay.Minutes.ToString()m </div>
+                                <p>@item.Paragraph</p>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    if (item.Image != null)
+                    {
+                        <div class="timeline-item">
+                            <div class="timeline-img"></div>
+                            <div class="timeline-content timeline-card js--fadeInRight">
+                                <div class="timeline-img-header" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('data:image/jpeg;base64,@Convert.ToBase64String(item.Image)') center center no-repeat;">
+                                    <h2>@item.Title</h2>
+                                </div>
+                                <div class="date">@item.CreationDate.Day @item.CreationDate.ToString("MMM") @item.CreationDate.Year a <br />  @item.CreationDate.TimeOfDay.Hours.ToString()h @item.CreationDate.TimeOfDay.Minutes.ToString()m </div>
+                                <p>@item.Paragraph</p>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div class="timeline-item">
+                            <div class="timeline-img"></div>
+                            <div class="timeline-content js--fadeInRight">
+                                <h2>@item.Title</h2>
+                                <div class="date">@item.CreationDate.Day @item.CreationDate.ToString("MMM") @item.CreationDate.Year a <br />  @item.CreationDate.TimeOfDay.Hours.ToString()h @item.CreationDate.TimeOfDay.Minutes.ToString()m </div>
+                                <p>@item.Paragraph</p>
+                            </div>
+                        </div>
+                    }
+                }
+                i++;
+            }
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>

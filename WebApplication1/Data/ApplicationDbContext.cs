@@ -35,6 +35,8 @@ namespace WebApplication1.Data
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<CalendarEvent> Events { get; set; }
+
+        public DbSet<Journal> Journals { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -101,6 +103,10 @@ namespace WebApplication1.Data
             builder.Entity<CalendarEvent>(entity =>
             {
                 entity.HasKey(i => i.TaskId);
+            });
+            builder.Entity<Journal>(entity =>
+            {
+                entity.HasKey(i => i.Id);
             });
         }
     }

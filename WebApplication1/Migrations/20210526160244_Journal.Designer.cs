@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Data;
 
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210526160244_Journal")]
+    partial class Journal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +52,7 @@ namespace WebApplication1.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "19bdf60f-d2fc-412c-a7b2-34a7b6759643",
+                            ConcurrencyStamp = "359d2cc8-601f-4323-abb7-ed317a9518d4",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -246,7 +248,7 @@ namespace WebApplication1.Migrations
                         {
                             Id = "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "635cfa60-ab80-45b2-bb7d-c460e26890ea",
+                            ConcurrencyStamp = "7879bceb-06ad-40fe-82bf-e7f5241bba98",
                             Email = "MasterAdmin@Admin.com",
                             EmailConfirmed = true,
                             FirstName = "Master",
@@ -254,7 +256,7 @@ namespace WebApplication1.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MASTERADMIN@ADMIN.COM",
                             NormalizedUserName = "MASTERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP9/rxyeEvONc49U9yOqIJuDw0rIALS8Uuz99Xax9wVCut5aUFY9Fx2kjsi7rIFX6w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIZeD/8y0FezscdIriE/bcf0+C1NUqcndy8rhDXA3Ue+00ebUF9yuy3qpogCezFm4A==",
                             PhoneNumber = "XXXXXXXXXXXXX",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "00000000-0000-0000-0000-000000000000",
@@ -489,9 +491,6 @@ namespace WebApplication1.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Paragraph")
                         .HasColumnType("nvarchar(max)");

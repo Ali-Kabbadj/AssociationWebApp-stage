@@ -72,9 +72,9 @@
                 </div>
                 <div class="card">
                     <div class="content">
-                        <h2 class="title">Explore The Galaxy</h2>
-                        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
-                        <button class="btn">Book Now</button>
+                        <h2 class="title">Journal</h2>
+                        <p class="copy">Ajouter , Modifier et supprimer la list des journals</p>
+                        <button id="Journal" class="btn">Geree</button>
                     </div>
                 </div>
                 <div class="card">
@@ -126,5 +126,8 @@
      });
      $('#Calendar').click(function () {
         document.location = '@Url.Action("Index", "CalendarEventCrud")';
+     });
+     $('#Journal').click(function () {
+        document.location = '@Url.Action("Index", "JournalCrud")';
     });
 </script>
