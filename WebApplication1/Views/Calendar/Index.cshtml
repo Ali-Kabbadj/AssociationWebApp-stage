@@ -11,8 +11,8 @@
             .Name("scheduler")
             .Date(DateTime.Now.Date)
             .StartTime(DateTime.Now.Date)
-            .AllDaySlot(false)
             .Editable(false)
+            .AllDaySlot(true)
             .Events(e =>
             {
                 e.Remove("Disable");
@@ -23,20 +23,19 @@
             })
             .Views(views =>
             {
-                views.DayView();
                 views.WeekView();
                 views.MonthView(MonthView => MonthView.Selected(true));
                 views.AgendaView();
             })
                 .Timezone("Etc/UTC")
                 .Resources(resource =>
-    {
-        resource.Add(m => m.Color)
-            .Title("Owner")
-            .DataTextField("Text")
-            .DataValueField("Value")
-            .DataColorField("Color")
-            .BindTo(new[] {
+                {
+                    resource.Add(m => m.Color)
+                        .Title("Owner")
+                        .DataTextField("Text")
+                        .DataValueField("Value")
+                        .DataColorField("Color")
+                        .BindTo(new[] {
                 new { Text = "red", Value = 1, Color = "#eb9696" } ,
                 new { Text = "blue", Value = 2, Color = "#262fa6" } ,
                 new { Text = "green", Value = 3, Color = "#54c954" },
@@ -44,8 +43,8 @@
                 new { Text = "yellow", Value = 5, Color = "#dbd35c" } ,
                 new { Text = "blueGreen", Value = 6, Color = "#51cdd4" },
                 new { Text = "Black", Value = 7, Color = "#021112" },
-            });
-    })
+                        });
+                })
                 .DataSource(d => d
                     .Model(m =>
                     {

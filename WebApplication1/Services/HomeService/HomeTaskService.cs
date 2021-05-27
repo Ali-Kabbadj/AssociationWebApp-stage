@@ -38,9 +38,6 @@ namespace WebApplication1.Services.HomeService
 
         public virtual void Insert(HomeModel Slide)
         {
-
-
-            Slide.Id = Guid.NewGuid().ToString();
             db.HomeSlides.Add(Slide);
                 db.SaveChanges();
         }

@@ -10,7 +10,7 @@ namespace WebApplication1.Models.QuiSommeNous
 {
     public class MissionSection : IMissionSection
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string Title { get; set; }
         public string SmallTitle { get; set; }

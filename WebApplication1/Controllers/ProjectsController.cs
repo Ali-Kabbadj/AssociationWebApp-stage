@@ -28,8 +28,8 @@ namespace WebApplication1.Controllers
         }
 
 
-        public IActionResult ViewPDF(string id)
-        { var Project = ProjectService.GetAll().Where(i=> i.Id == int.Parse(id)).First();
+        public IActionResult ViewPDF(int id)
+        { var Project = ProjectService.GetAll().Where(i=> i.Id == id).First();
 
 
             return View(Project);

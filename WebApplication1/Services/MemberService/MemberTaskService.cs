@@ -32,9 +32,6 @@ namespace WebApplication1.Services.MemberService
 
         public virtual void Insert(Member member)
         {
-
-
-            member.Id = Guid.NewGuid().ToString();
             db.members.Add(member);
             db.SaveChanges();
         }

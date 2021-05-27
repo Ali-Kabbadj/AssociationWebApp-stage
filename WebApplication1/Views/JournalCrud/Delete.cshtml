@@ -13,7 +13,8 @@
         overflow: hidden;
         word-wrap: break-word;
         resize: vertical;
-        height: 500px;
+        height: 100%;
+        width: 100%;
         overflow: hidden;
         background-color: #FFF;
         color: #222;
@@ -21,8 +22,6 @@
         font-weight: normal;
         font-size: 24px;
         line-height: 40px;
-        padding-left: 100px;
-        padding-right: 100px;
         padding-top: 45px;
         padding-bottom: 34px;
         background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
@@ -39,7 +38,7 @@
 
 <div class="CardContainer">
     <div class="CardSection">
-        <div class="Inputsbody">
+        <div style="min-height: 75vh;" class="Inputsbody">
             <h1 style="position:center">Supprimer le Journal</h1>
            
             <div class="form__group field">
@@ -74,9 +73,9 @@
             <div class="form__group field">
                 <h3>Etes-vous sur de voulpir supprimer ce Journal?</h3>
                 <div>
-                    <form asp-action="Delete" asp-controller="JournalCrud">
+                    <form style="text-align:center;" asp-action="Delete" asp-controller="JournalCrud">
                         <input id="submit" type="submit" asp-for="Id" asp-route-id="@Model.Id" value="@Model.Id " hidden />
-                        <button value="Supprimer" class="btn btn-danger">Delete</button>
+                        <button style="width:100%;" value="Supprimer" class="btn btn-danger">Supprimer Le Journal</button>
                         <a asp-action="Index" asp-controller="JournalCrud">Retourner a la liste des Journals</a>
                     </form>
                 </div>

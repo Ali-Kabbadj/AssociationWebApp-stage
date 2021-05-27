@@ -49,7 +49,7 @@
         <div class="Tablecontainer">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Liste des Evenement de Calendrier</h2>
+                    <h2 style="font-size:50px" class="heading-section">Liste des Evenements du Calendrier</h2>
                 </div>
             </div>
             <div class="row">
@@ -58,11 +58,11 @@
                         <table class="table table-responsive-xl">
                             <thead>
                                 <tr>
-                                    <th>Debut</th>
-                                    <th>Fin</th>
-                                    <th>Title</th>
+                                    <th>De</th>
+                                    <th>A</th>
+                                    <th>Titre</th>
                                     <th>Description</th>
-                                    <th>Tout la journee</th>
+                                    <th>Tout la journee?</th>
                                     <th>Couleur</th>
                                 </tr>
                             </thead>
@@ -71,7 +71,7 @@
                                 {
 
                                 <tr class="alert" role="alert">
-                                    <td>@item.Start.ToShortDateString()</td>
+                                    <td>@item.Start.ToShortDateString() @item.Start.Hour h @item.Start.Minute min </td>
                                     <td>@item.End.ToShortDateString()</td>
                                     <td>@item.Title</td>
                                     <td>@item.Description</td>

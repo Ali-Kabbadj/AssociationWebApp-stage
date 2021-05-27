@@ -11,7 +11,7 @@ namespace WebApplication1.Models.QuiSommeNous
 {
     public class Member : IMember
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string FirsName { get; set; }
         public string LastName { get; set; }

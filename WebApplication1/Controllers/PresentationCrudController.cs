@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             var Presentation = PresentationService.GetAll().Where(i => i.Id == id).First();
             var stream = new MemoryStream(Presentation.Image);
@@ -77,7 +77,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost]
-        public IActionResult Edit(Section section,string id)
+        public IActionResult Edit(Section section,int id)
         {
 
             if (section.ImageIForm == null)
@@ -107,7 +107,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var DeleteSection = PresentationService.GetAll().Where(i => i.Id == id).First();
             return View(DeleteSection);
@@ -129,7 +129,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult IndexParagraph(string id)
+        public IActionResult IndexParagraph(int id)
         {
             var Paragraphs = PresentationService.GetAllParagraphsBySectionId(id);
             ViewBag.SectionId = id;
@@ -141,24 +141,25 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult CreateParagraph(string id)
+        public IActionResult CreateParagraph(int id)
         {
             ViewBag.SectionId = id;
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateParagraph(Paragraph paragraph ,string ID )
+        public IActionResult CreateParagraph(Paragraph paragraph ,int ID )
         {
             paragraph.SectionId = ID;
-            PresentationService.InsertParagraph(paragraph, ID);
+            paragraph.Id = 0;
+            PresentationService.InsertParagraph(paragraph);
             return RedirectToAction("IndexParagraph", "PresentationCrud", new { id = ID });
         }
 
 
 
         [HttpGet]
-        public IActionResult EditParagraph(string id)
+        public IActionResult EditParagraph(int id)
         {
             var Deleteparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == id).First();
             ViewBag.SectionId = Deleteparagraph.SectionId;
@@ -179,7 +180,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult DeleteParagraph(string id)
+        public IActionResult DeleteParagraph(int id)
         {
             var Deleteparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == id).First();
             ViewBag.SectionId = Deleteparagraph.SectionId;
@@ -187,7 +188,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteParagraph(string ID,string somethingelse)
+        public IActionResult DeleteParagraph(int ID,string somethingelse)
         {
             var Deleteparagraph = PresentationService.GetAllParagraphs().Where(p => p.Id == ID).First();
             ViewBag.SectionId = Deleteparagraph.SectionId;

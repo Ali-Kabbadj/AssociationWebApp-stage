@@ -9,7 +9,7 @@ namespace WebApplication1.Services.PresentationService
 {
     public interface IPresentation
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public List<Paragraph> ListOfParagraphs { get; set; }
 
         public byte[] Image { get; set; }

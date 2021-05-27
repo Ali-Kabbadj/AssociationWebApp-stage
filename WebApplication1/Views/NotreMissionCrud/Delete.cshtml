@@ -13,7 +13,8 @@
         overflow: hidden;
         word-wrap: break-word;
         resize: vertical;
-        height: 500px;
+        height: 100%;
+        width: 100%;
         overflow: hidden;
         background-color: #FFF;
         color: #222;
@@ -21,8 +22,6 @@
         font-weight: normal;
         font-size: 24px;
         line-height: 40px;
-        padding-left: 100px;
-        padding-right: 100px;
         padding-top: 45px;
         padding-bottom: 34px;
         background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
@@ -39,9 +38,9 @@
 
 <div class="CardContainer">
     <div class="CardSection">
-        <div class="Inputsbody">
-            <h1 style="position:center">Supprimer le slide</h1>
-            <div class="form__group field">
+        <div  class="Inputsbody">
+            <h1 style="position:center">Supprimer La Section</h1>
+            <div style="max-height: 29.4vh;" class="form__group field">
                 <div class="Imgcontainer">
                     <div class="wrapper">
                         <div class="image">
@@ -76,9 +75,9 @@
             <div class="form__group field">
                 <h3>Etes-vous sur de voulpir supprimer ce slide?</h3>
                 <div>
-                    <form asp-action="Delete">
+                    <form style="text-align:center;"  asp-action="Delete">
                         <input id="submit" type="submit" asp-for="Id" asp-route-id="@Model.Id" value="@Model.Id " hidden />
-                        <button value="Supprimer" class="btn btn-danger">Delete</button>
+                        <button style="width:100%;" value="Supprimer" class="btn btn-danger">Supprimer La Section</button>
                         <a asp-action="Index" asp-controller="NotreMissionCrud">Retourner a la liste des Section</a>
                     </form>
                 </div>

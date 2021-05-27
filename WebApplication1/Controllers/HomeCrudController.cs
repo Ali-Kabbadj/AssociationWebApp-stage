@@ -67,7 +67,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             var EditSlide = _context.HomeSlides.Find(id);
             var stream = new MemoryStream(EditSlide.Image);
@@ -106,7 +106,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var DeleteSlide = _context.HomeSlides.Find(id);
             return View(DeleteSlide);

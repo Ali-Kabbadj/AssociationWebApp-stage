@@ -65,7 +65,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             var MissionSection = _context.ListSectionMission.Find(id);
             var stream = new MemoryStream(MissionSection.Image);
@@ -104,7 +104,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var MissionSection = _context.ListSectionMission.Find(id);
             return View(MissionSection);

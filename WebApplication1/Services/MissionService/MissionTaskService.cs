@@ -33,9 +33,6 @@ namespace WebApplication1.Services.MissionService
 
         public virtual void Insert(MissionSection MissionSection)
         {
-
-
-            MissionSection.Id = Guid.NewGuid().ToString();
             db.ListSectionMission.Add(MissionSection);
                 db.SaveChanges();
         }

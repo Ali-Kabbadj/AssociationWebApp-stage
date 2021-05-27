@@ -53,6 +53,7 @@ namespace WebApplication1.Controllers.Admin
             {
                 return RedirectToAction("Pages");
             }
+            
             return View();
         }
 
@@ -66,7 +67,7 @@ namespace WebApplication1.Controllers.Admin
                 var user = _userManager.FindByEmailAsync(login.Email);
                 if (user != null)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user.Result.UserName, login.Password,isPersistent:false ,lockoutOnFailure: false);
+                    var result = await _signInManager.PasswordSignInAsync(user.Result.UserName, login.Password,isPersistent:login.RememberMe ,lockoutOnFailure: false);
 
                     if (result.Succeeded)
                     {

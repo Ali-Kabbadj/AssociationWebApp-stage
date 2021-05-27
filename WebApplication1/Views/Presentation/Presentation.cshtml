@@ -37,15 +37,15 @@
                         {
                             if (i == 0)
                             {
-                                <p><span class="first-character sc">@sectionm.ListOfParagraphs[i].ParagraphContent.ElementAt(0)</span>@sectionm.ListOfParagraphs[i].ParagraphContent.Remove(0, 1)</p>
+                                <p><span class="first-character sc"> @sectionm.ListOfParagraphs[i].ParagraphContent.ElementAt(0)</span>@sectionm.ListOfParagraphs[i].ParagraphContent.Remove(0, 1)</p>
                             }
                             if (i == 1)
                             {
-                                <p class="margin-top-10">@sectionm.ListOfParagraphs[i].ParagraphContent</p>
+                    <p class="margin-top-10">&nbsp;&nbsp;@sectionm.ListOfParagraphs[i].ParagraphContent</p>
                             }
                             else
                             {
-                                <p>@sectionm.ListOfParagraphs[i].ParagraphContent</p>
+                    <p>&nbsp;&nbsp;@sectionm.ListOfParagraphs[i].ParagraphContent</p>
                             }
                         }
                     </div>

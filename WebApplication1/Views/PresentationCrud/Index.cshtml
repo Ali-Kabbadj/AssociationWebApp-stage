@@ -11,9 +11,7 @@
     <div class="CardSection">
         <div class="Tablecontainer">
             <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Liste des Section</h2>
-                </div>
+                    <h2 style="font-size:50px;" class="heading-section">Liste des Section (Page Presentation)</h2>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -37,7 +35,7 @@
                                         </div>
                                     </td>
                                     <td>@item.Text</td>
-                                    <td>@item.ListOfParagraphs.Count()</td>
+                                    <td >@item.ListOfParagraphs.Count()</td>
                                     <td class="status"><button value="@item.Id" class="btn mb-3 mr-3 btn-success btn-Modifier"><span class="text">Modifier la section</span></button></td>
                                     <td class="status"><button value="@item.Id" class="btn mb-3 mr-3 btn-danger btn-Supprimer"><span class="text">Supprimer la section</span></button></td>
                                     <td class="status"><button value="@item.Id" class="btn mb-3 mr-3 btn-primary btn-Geree"><span class="text">Gerer les  paragraph</span></button></td>

@@ -8,7 +8,7 @@ namespace WebApplication1.Services.MemberService
 {
     public interface IMember
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string FirsName { get; set; }
         public string LastName { get; set; }

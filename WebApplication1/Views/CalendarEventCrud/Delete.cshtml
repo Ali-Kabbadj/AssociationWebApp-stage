@@ -73,11 +73,11 @@
                 <label for="name" class="form__label">Couleur</label>
             </div>
             <div class="form__group field">
-                <h3>Etes-vous sur de voulpir supprimer ce slide?</h3>
+                <h3>Etes-vous sur de voulpir supprimer cet Evenement?</h3>
                 <div>
-                    <form asp-action="Delete">
+                    <form style="text-align:center;" asp-action="Delete">
                         <input id="submit" type="submit" asp-for="TaskId" asp-route-id="@Model.TaskId" value="@Model.TaskId " hidden />
-                        <button value="Supprimer" class="btn btn-danger">Supprimer</button>
+                        <button style="width:100%;" value="Supprimer" class="btn btn-danger">Supprimer l'evenement</button>
                         <a asp-action="Index" asp-controller="CalendarEventCrud">Retourner a la liste des Evenement</a>
                     </form>
                 </div>

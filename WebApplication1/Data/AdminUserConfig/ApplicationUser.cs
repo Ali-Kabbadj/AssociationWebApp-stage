@@ -13,5 +13,6 @@ namespace WebApplication1.Data.AdminUserConfig
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

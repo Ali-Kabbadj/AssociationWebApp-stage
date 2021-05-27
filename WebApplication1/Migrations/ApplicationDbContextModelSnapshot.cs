@@ -50,7 +50,7 @@ namespace WebApplication1.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "19bdf60f-d2fc-412c-a7b2-34a7b6759643",
+                            ConcurrencyStamp = "61734501-4f8a-4bc6-a5ca-f72b8ea5e233",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -219,6 +219,9 @@ namespace WebApplication1.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("RememberMe")
+                        .HasColumnType("bit");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -246,7 +249,7 @@ namespace WebApplication1.Migrations
                         {
                             Id = "B22698B8-42A2-4115-9631-1C2D1E2AC5F7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "635cfa60-ab80-45b2-bb7d-c460e26890ea",
+                            ConcurrencyStamp = "99843f01-fc25-4525-bb6e-9d2eba9f31b6",
                             Email = "MasterAdmin@Admin.com",
                             EmailConfirmed = true,
                             FirstName = "Master",
@@ -254,9 +257,10 @@ namespace WebApplication1.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MASTERADMIN@ADMIN.COM",
                             NormalizedUserName = "MASTERADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP9/rxyeEvONc49U9yOqIJuDw0rIALS8Uuz99Xax9wVCut5aUFY9Fx2kjsi7rIFX6w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELvNQsHq4/kyKw2vxEvUHiwH1bkts2xoTRUps1W0ngmAuzhTRjjhbH71BNbKq2IQkA==",
                             PhoneNumber = "XXXXXXXXXXXXX",
                             PhoneNumberConfirmed = true,
+                            RememberMe = false,
                             SecurityStamp = "00000000-0000-0000-0000-000000000000",
                             TwoFactorEnabled = false,
                             UserName = "masteradmin"
@@ -289,8 +293,10 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.Home.HomeModel", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -356,14 +362,16 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Paragraph", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ParagraphContent")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SectionId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("SectionId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -374,8 +382,10 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
@@ -390,8 +400,10 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.Member", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -415,8 +427,10 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.QuiSommeNous.MissionSection", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
@@ -559,7 +573,9 @@ namespace WebApplication1.Migrations
                 {
                     b.HasOne("WebApplication1.Models.QuiSommeNous.ArticlePresentation.Section", null)
                         .WithMany("ListOfParagraphs")
-                        .HasForeignKey("SectionId");
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

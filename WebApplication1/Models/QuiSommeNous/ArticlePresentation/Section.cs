@@ -12,7 +12,7 @@ namespace WebApplication1.Models.QuiSommeNous.ArticlePresentation
     public class Section : IPresentation
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public List<Paragraph> ListOfParagraphs { get; set; }
 
 

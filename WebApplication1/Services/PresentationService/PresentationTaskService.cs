@@ -38,7 +38,6 @@ namespace WebApplication1.Services.PresentationService
         
         public virtual void Insert(Section section)
         {
-            section.Id = Guid.NewGuid().ToString();
             db.PresnetationPage.Add(section);
             db.SaveChanges();
         }
@@ -79,17 +78,15 @@ namespace WebApplication1.Services.PresentationService
             return Paragraphs;
         }
 
-        public virtual IQueryable<Paragraph> GetAllParagraphsBySectionId(string idSection)
+        public virtual IQueryable<Paragraph> GetAllParagraphsBySectionId(int idSection)
         {
             var Paragraphs = GetAllParagraphs().Where(i => i.SectionId == idSection);
             return Paragraphs;
         }
 
 
-        public virtual void InsertParagraph(Paragraph paragraph,string id)
+        public virtual void InsertParagraph(Paragraph paragraph)
         {
-            paragraph.SectionId = id;
-            paragraph.Id = Guid.NewGuid().ToString();
             db.Paragraphs.Add(paragraph);
             db.SaveChanges();
         }

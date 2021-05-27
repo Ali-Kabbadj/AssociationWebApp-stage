@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             var EditMember = _context.members.Find(id);
             var stream = new MemoryStream(EditMember.Image);
@@ -105,7 +105,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var Deletemember = _context.members.Find(id);
             return View(Deletemember);

@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers.Contact_US
             return View();
         }
 
-        public async Task<IActionResult> SendMessage(ContactForm Form)
+        public  IActionResult SendMessage(ContactForm Form)
         {
             if (ModelState.IsValid)
             {

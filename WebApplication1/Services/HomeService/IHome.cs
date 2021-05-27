@@ -7,7 +7,7 @@ namespace WebApplication1.Services.HomeService
 {
     public interface IHome
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

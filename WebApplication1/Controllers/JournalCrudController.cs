@@ -43,7 +43,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Create(Journal journal)
         {
-            if (journal != null)
+            if (journal.IFormImage != null)
             {
                 using (var target = new MemoryStream())
                 {
@@ -53,6 +53,10 @@ namespace WebApplication1.Controllers
 
                 JournalService.Insert(journal);
 
+            }
+            else
+            {
+                    JournalService.Insert(journal);
             }
             return RedirectToAction("Index");
         }
@@ -80,11 +84,7 @@ namespace WebApplication1.Controllers
         public IActionResult Edit(Journal journal)
         {
             var journalback = JournalService.GetAll().Where(i => i.Id == journal.Id).First();
-            if (journal.IFormImage == null)
-            {
-                journal.Image = journalback.Image;
-            }
-            else
+            if (journal.IFormImage != null)
             {
                 //Getting FileName
                 var fileName = Path.GetFileName(journal.IFormImage.FileName);

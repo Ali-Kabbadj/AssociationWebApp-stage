@@ -25,11 +25,12 @@
 
 
 <div class="CardContainer">
-    <div class="CardSection">
+    <div class="CardSection" style="background-color:black;border:0px;">
         <div class="container-login100" style="margin:0;">
 
             <div class="wrap-login100">
-                <form asp-action="Login" asp-controller="Admin" class="login100-form validate-form">
+                
+                <form asp-action="Login" asp-controller="Admin" class="login100-form validate-form" enctype="multipart/form-data">
                     <span class="login100-form-logo">
                         <i class="zmdi zmdi-landscape"></i>
                     </span>
@@ -48,13 +49,12 @@
                         <span class="focus-input100" data-placeholder="&#xf191;"></span>
                     </div>
 
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                    <div  class="contact100-form-checkbox">
+                        <input asp-for="RememberMe"  class="input-checkbox100" id="ckb1" type="checkbox" name="RememberMe">
                         <label class="label-checkbox100" for="ckb1">
                             Remember me
                         </label>
                     </div>
-
                     <div class="container-login100-form-btn">
                         <button  type="submit" class="login100-form-btn">
                             Login
@@ -77,19 +77,3 @@
 
 
 
-
-
-@*<div class="Form-body">
-        <form asp-action="Login" asp-controller="Admin" class="login-form">
-            <h1>Admin</h1>
-            <div class="form-input-material">
-                <input asp-for="Email" type="text" name="Email" id="Email" placeholder=" " autocomplete="off" class="form-control-material" required />
-                <label for="Email">Email</label>
-            </div>
-            <div class="form-input-material">
-                <input asp-for="Password" type="password" name="password" id="password" placeholder=" " autocomplete="off" class="form-control-material" required />
-                <label for="password">Password</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-ghost">Login</button>
-        </form>
-    </div>*@

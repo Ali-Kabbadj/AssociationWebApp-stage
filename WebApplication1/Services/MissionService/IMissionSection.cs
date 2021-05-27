@@ -8,7 +8,7 @@ namespace WebApplication1.Services.MissionService
 {
     public interface IMissionSection
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string Title { get; set; }
         public string SmallTitle { get; set; }

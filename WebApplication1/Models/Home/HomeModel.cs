@@ -11,7 +11,7 @@ namespace WebApplication1.Models.Home
     public class HomeModel : IHome
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public byte[] Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

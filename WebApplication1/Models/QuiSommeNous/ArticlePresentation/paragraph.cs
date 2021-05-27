@@ -10,9 +10,9 @@ namespace WebApplication1.Models.QuiSommeNous.ArticlePresentation
     public class Paragraph
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string ParagraphContent { get; set; }
         [ForeignKey("Section")]
-        public string SectionId { get; set; }
+        public int SectionId { get; set; }
     }
 }

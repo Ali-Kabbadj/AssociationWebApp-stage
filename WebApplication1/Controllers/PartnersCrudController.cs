@@ -70,7 +70,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             var partner = _context.Partners.Find(id);
             var stream = new MemoryStream(partner.Image);
@@ -109,7 +109,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var partner = _context.Partners.Find(id);
             return View(partner);

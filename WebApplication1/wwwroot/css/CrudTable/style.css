@@ -51,7 +51,7 @@ hr {
     overflow: visible;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5, h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -336,8 +336,8 @@ template {
     display: none !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1, h2, h3,  h5, h6,
+.h1, .h2, .h3, .h5, .h6 {
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
@@ -355,7 +355,7 @@ h3, .h3 {
     font-size: 1.75rem;
 }
 
-h4, .h4 {
+ .h4 {
     font-size: 1.5rem;
 }
 
@@ -594,7 +594,7 @@ pre {
     padding-right: 15px;
     padding-left: 15px;
 }
-
+/*
 .col {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -602,7 +602,7 @@ pre {
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
-}
+}*/
 
 .col-auto {
     -webkit-box-flex: 0;
@@ -11394,7 +11394,7 @@ a {
         box-shadow: none;
     }
 
-h1, h2, h3, h4, h5,
+h1, h2, h3, h5,
 .h1, .h2, .h3, .h4, .h5 {
     line-height: 1.5;
     font-weight: 400;
@@ -11475,15 +11475,7 @@ h1, h2, h3, h4, h5,
             border-radius: 30px;
         }
 
-            .table tbody td.status span:after {
-                position: absolute;
-                top: 9px;
-                left: 10px;
-                width: 10px;
-                height: 10px;
-                content: '';
-                border-radius: 50%;
-            }
+         
 
         .table tbody td.status .active {
             background: #cff6dd;

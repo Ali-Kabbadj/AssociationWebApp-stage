@@ -47,10 +47,10 @@
             <div class="form__group field">
                 <h3>Etes-vous sur de voulpir supprimer le paragraph?</h3>
                 <div>
-                    <form  method="post">
+                    <form style="text-align:center;" method="post">
                         <input id="submit" value="@Model.Id " hidden />
-                        <button class="btn mb-3 mr-3 btn-danger btn-Supprimer"><span class="bg-float"></span><span class="text">Supprimer</span></button>
-                        <a asp-action="IndexParagraph" asp-controller="PresentationCrud" asp-route-id="@ViewBag.SectionId">Retourner a la liste des Paragraphs</a>
+                        <button style="width:100%;" class="btn mb-3 mr-3 btn-danger btn-Supprimer"><span class="bg-float"></span><span class="text">Supprimer</span></button>
+                        <a  asp-action="IndexParagraph" asp-controller="PresentationCrud" asp-route-id="@ViewBag.SectionId">Retourner a la liste des Paragraphs</a>
                     </form>
                 </div>
                 <label></label>
