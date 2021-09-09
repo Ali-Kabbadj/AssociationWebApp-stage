@@ -7,4 +7,8 @@ so what i did to solve this is to created an admin space that allows the admin t
 
 <a href="https://ibb.co/cFGdzMs"><img src="https://i.ibb.co/ncHShZK/folders.png" alt="folders" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
-![Alt Text](https://i.ibb.co/pWVSxXd/ezgif-3-37173305c462.gif)
+
+<img src="https://i.ibb.co/pWVSxXd/ezgif-3-37173305c462.gif" width="40" height="40" />
+
+<a href="https://ibb.co/rb8VmyH"><img src="https://i.ibb.co/rb8VmyH/ezgif-3-37173305c462.gif" /></a>
+
