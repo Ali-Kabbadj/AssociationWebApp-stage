@@ -6,7 +6,6 @@ Developed for an association to dispaly their information ,projects ,events , lo
 I wasnt provided with enough information about the association , and that made the prosses of creating the right pages and their layouts not that intuitive,
 so what i did to solve this is to created an admin space that allows the admin to contmiz every page , the pagargarphs/titles/images/locations/events/news... and the Email box .
 
-<a href="https://ibb.co/cFGdzMs"><img src="https://i.ibb.co/ncHShZK/folders.png" alt="folders" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/S0vh8HW/ezgif-7-e8826f7bc322.gif" alt="ezgif-7-e8826f7bc322" border="0"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/ZLsP4Jy/ezgif-3-f8d1a040e7de.gif" alt="ezgif-3-f8d1a040e7de" border="0"></a>
@@ -19,4 +18,5 @@ so what i did to solve this is to created an admin space that allows the admin t
   <a href="https://imgbb.com/"><img src="https://i.ibb.co/2cCm4X5/ezgif-4-05d6c12f0103.gif" alt="ezgif-4-05d6c12f0103" border="0"></a>
 
   <a href="https://ibb.co/cFGdzMs"><img src="https://i.ibb.co/ncHShZK/folders.png" alt="folders" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
+
 
