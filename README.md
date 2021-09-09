@@ -7,8 +7,13 @@ so what i did to solve this is to created an admin space that allows the admin t
 
 <a href="https://ibb.co/cFGdzMs"><img src="https://i.ibb.co/ncHShZK/folders.png" alt="folders" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
-
-<img src="https://i.ibb.co/pWVSxXd/ezgif-3-37173305c462.gif" width="40" height="40" />
-
-<a href="https://ibb.co/rb8VmyH"><img src="https://i.ibb.co/rb8VmyH/ezgif-3-37173305c462.gif" /></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/S0vh8HW/ezgif-7-e8826f7bc322.gif" alt="ezgif-7-e8826f7bc322" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/ZLsP4Jy/ezgif-3-f8d1a040e7de.gif" alt="ezgif-3-f8d1a040e7de" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/C1KzRcn/ezgif-3-ea66e96b3146.gif" alt="ezgif-3-ea66e96b3146" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/phzs719/ezgif-3-22d3a72adcd1.gif" alt="ezgif-3-22d3a72adcd1" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>
+  
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/SRD2FpP/ezgif-3-12a871c326fe.gif" alt="ezgif-3-12a871c326fe" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a>
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/3yczjY1/ezgif-3-4b8285108de6.gif" alt="ezgif-3-4b8285108de6" border="0"></a>
+  
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/2cCm4X5/ezgif-4-05d6c12f0103.gif" alt="ezgif-4-05d6c12f0103" border="0"></a>
 
