@@ -1,5 +1,5 @@
 This is a web application ,built with .Net core using MVC pattern .
-The project was a subject of an internship of 2 months.
+The project was a subject of an internship of 1 month.
 
 Developed for an association to dispaly their information ,projects ,events , locations... and a contact form
 
